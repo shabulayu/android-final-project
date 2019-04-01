@@ -3,22 +3,22 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item android:id="@+id/item1"
         android:title="Merriam Webster Dictionary"
-        android:icon="@drawable/icons8-bookmark-16"
+        android:icon="@drawable/icons8_bookmark_16"
         android:orderInCategory="100"
         app:showAsAction="always"/>
     <item android:id="@+id/item2"
         android:title="News Feed"
-        android:icon="@drawable/icons8-search-16"
+        android:icon="@drawable/icons8_search_16"
         android:orderInCategory="200"
         app:showAsAction="always"/>
     <item android:id="@+id/item3"
         android:title="New York Times Article Search"
-        android:icon="@drawable/icons8-edit-16"
+        android:icon="@drawable/icons8_edit_16"
         android:orderInCategory="300"
         app:showAsAction="always"/>
     <item android:id="@+id/item4"
         android:title="help"
-        android:icon="@drawable/icons8-plus-16"
+        android:icon="@drawable/icons8_plus_16"
         android:orderInCategory="400"
         app:showAsAction="never"/>
 

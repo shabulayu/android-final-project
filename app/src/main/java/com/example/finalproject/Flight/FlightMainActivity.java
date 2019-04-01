@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.Flight;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,15 +6,16 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.LayoutInflater;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.EditText;
-import android.widget.Toast;
+
+import com.example.finalproject.NewsFeed.NewsFeed;
+import com.example.finalproject.R;
 
 public class FlightMainActivity extends AppCompatActivity {
+    private String ACTIVITY_NAME = "FLIGHT_MAIN_ACTIVITY";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -42,7 +43,7 @@ public class FlightMainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.item2:
-                //startActivity(new Intent(FlightMainActivity.this, New_FeedMainActivity.class));
+                startActivity(new Intent(FlightMainActivity.this, NewsFeed.class));
                 return true;
 
             case R.id.item3:
@@ -68,4 +69,35 @@ public class FlightMainActivity extends AppCompatActivity {
         }
         return true;
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(ACTIVITY_NAME, "In onStart()");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(ACTIVITY_NAME, "In onResume()");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(ACTIVITY_NAME, "In onPause()");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(ACTIVITY_NAME, "In onStop()");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(ACTIVITY_NAME, "In onDestroy()");
+    }
+
 }

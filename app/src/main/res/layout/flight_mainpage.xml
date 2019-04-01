@@ -12,13 +12,24 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_above="@+id/AirportNo"
+        android:text="Flight Status Tracer"
+        android:textColor="@color/colorPrimaryDark"
+        android:textAlignment="center"
+        android:textSize="32dp"
+        android:textStyle="bold"/>
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content" android:id="@+id/fightListView"
         android:layout_alignParentTop="false" android:layout_alignParentStart="false"
         android:layout_alignParentEnd="false"
         android:layout_above="@id/AirportNo"
-        android:layout_below="@+id/my_toolbar"
+        android:layout_below="@+id/title"
         android:dividerHeight="4dp" android:paddingBottom="18dp"
         android:paddingLeft="8dp" android:paddingRight="8dp" android:paddingTop="18dp"/>
 

@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.Flight;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,10 +14,10 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.example.finalproject.R;
+
 import java.util.ArrayList;
 import java.util.List;
-
-import static com.example.finalproject.Flight.Role.Departure;
 
 public class FlightSearchActivity extends Activity {
 
