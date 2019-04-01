@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/my_toolbar">
+
+    </android.support.v7.widget.Toolbar>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:id="@+id/fightListView"
+        android:layout_alignParentTop="false" android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
+        android:layout_above="@id/AirportNo"
+        android:layout_below="@+id/my_toolbar"
+        android:dividerHeight="4dp" android:paddingBottom="18dp"
+        android:paddingLeft="8dp" android:paddingRight="8dp" android:paddingTop="18dp"/>
+
+
+    <EditText
+        android:id="@+id/AirportNo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginBottom="0dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="search"
+        android:id="@+id/search"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/AirportNo"
+        android:layout_alignParentEnd="true"/>
+
+
+
+</RelativeLayout>

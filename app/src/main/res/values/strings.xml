@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">final project</string>
+    <string name="flight_positive">OK</string>
+    <string name="flight_instruction_title">Flight Help Instruction</string>
+    <string name="flight_help">"Author: Danyao Wang \n" +
+        "Version: 0.0.2 \n"+
+        "Instructions: \n"
+        "1. You can track flight information according to flight number on home page.\n"
+        "2. Click the selected flight for detailed information.\n"
+        "3. Save the flight for updating and delete the saved flight from the list.\n"
+    </string>
 </resources>
