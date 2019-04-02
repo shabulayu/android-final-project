@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="test title"
+        android:id="@+id/title"/>
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="test author"
+        android:id="@+id/author"/>
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="test link"
+        android:id="@+id/link"/>
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="test description"
+        android:id="@+id/description"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Delete"
+        android:id="@+id/deleteButton"/>
+
+
+</LinearLayout>

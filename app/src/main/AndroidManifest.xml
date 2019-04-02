@@ -13,6 +13,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".NewYorkTimes.activity_newyork" />
+        <activity android:name=".NewYorkTimes.Empty_newyork" />
         <activity android:name=".NewsFeed.SavedArticle" />
         <activity android:name=".NewsFeed.NewsArticle" />
         <activity android:name=".NewsFeed.NewsFeed" />
