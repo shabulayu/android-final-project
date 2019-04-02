@@ -1,8 +1,11 @@
 package com.example.finalproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+
+import com.example.finalproject.NewsFeed.NewsFeed;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,5 +22,9 @@ public class MainActivity extends AppCompatActivity {
         newsBt = findViewById(R.id.newsBt);
         flightBt = findViewById(R.id.flightBt);
         searchBt = findViewById(R.id.searchBt);
+        Intent news = new Intent(this, NewsFeed.class);
+        newsBt .setOnClickListener(a->{
+            startActivity(news);
+        });
     }
 }

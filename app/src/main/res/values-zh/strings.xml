@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">期末项目</string>
+    <string name="Dictionary">韦氏字典</string>
+    <string name="News">新闻递送</string>
+    <string name="Flight">航班状态追踪</string>
+    <string name="Article">纽约时报文章搜索</string>
+    <string name="Search">在这里输入搜索内容</string>
+    <string name="savedTitle">已保存文章</string>
+    <string name="author">本应用开发者：鱼思源</string>
+    <string name="version">版本1.0</string>
+    <string name="instruction">用户可以通过这个应用阅读NEWS CRAWLER网站上的新闻故事，本应用还提供文章标题关键字
+        搜索，如果用户喜欢某篇文章，可通过存储按钮添加该文章到本地数据库。</string>
+    <string name="help">帮助</string>
+    <string name="save">保存</string>
+</resources>
