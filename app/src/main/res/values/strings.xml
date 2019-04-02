@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">final project</string>
+    <string name="search">Search in Merriam Webster Dictionary</string>
+    <string name="Message">Welcome to use Merriam Webster Dictionary</string>
+    <string name="definition">DEFINITION </string>
+    <string name="type">Enter a word to search. </string>
+    <string name="feed">News Feed</string>
+    <string name="flight">Flight Status Tracker </string>
+    <string name="news">New York Times Article Search </string>
+    <string name="action_settings">Help</string>
+
 </resources>

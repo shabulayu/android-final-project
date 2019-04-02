@@ -1,8 +1,10 @@
 package com.example.finalproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,5 +21,10 @@ public class MainActivity extends AppCompatActivity {
         newsBt = findViewById(R.id.newsBt);
         flightBt = findViewById(R.id.flightBt);
         searchBt = findViewById(R.id.searchBt);
+
+        dicBt.setOnClickListener(a -> {
+            Intent dic=new Intent(MainActivity.this,Dictionary.class);
+            startActivity(dic);
+        });
     }
 }
