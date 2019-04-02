@@ -10,17 +10,30 @@ import android.view.ViewGroup;
 
 import com.example.finalproject.R;
 
+/**
+ * This is a article class, to define the attributes of an article
+ */
 public class TimesNews {
 
+    //article attributes
     private String title;
     private String author;
     private String link;
     private String description;
 
+    /**
+     * default constructor
+     */
     public TimesNews() {
 
     }
 
+    /**constructor
+     * @param title
+     * @param author
+     * @param link
+     * @param description
+     */
     public TimesNews(String title, String author, String link, String description) {
         this.title = title;
         this.author = author;
@@ -28,34 +41,59 @@ public class TimesNews {
         this.description = description;
     }
 
+    /**
+     * getter
+     * @return
+     */
     public String getTitle() {
         return title;
     }
-
+    /**
+     * setter
+     * @return
+     */
     public void setTitle(String title) {
         this.title = title;
     }
-
+    /**
+     * getter
+     * @return
+     */
     public String getAuthor() {
         return author;
     }
-
+    /**
+     * setter
+     * @return
+     */
     public void setAuthor(String author) {
         this.author = author;
     }
-
+    /**
+     * getter
+     * @return
+     */
     public String getLink() {
         return link;
     }
-
+    /**
+     * setter
+     * @return
+     */
     public void setLink(String link) {
         this.link = link;
     }
-
+    /**
+     * getter
+     * @return
+     */
     public String getDescription() {
         return description;
     }
-
+    /**
+     * setter
+     * @return
+     */
     public void setDescription(String description) {
         this.description = description;
     }

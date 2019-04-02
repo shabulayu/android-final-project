@@ -19,7 +19,11 @@
     <string name="backN">BACK</string>
     <string name="wang">Author: Yongli Wang</string>
     <string name="verN">Version Number: 1.0</string>
-    <string name="desN">Instruction: This page is used to search the articles from the New York Times websites. The users can save and delete the article. When the user clicks one article, it will shows the details of the article.</string>
+    <string name="desN">Instruction: This page is used to search the articles from the New York Times websites.
+        The users can save and delete the article.
+        When the user clicks one article, it will shows the details of the article.</string>
+    <string name="backSnack">Go Back?</string>
+    <string name="yes">Yes</string>
 
 
 </resources>

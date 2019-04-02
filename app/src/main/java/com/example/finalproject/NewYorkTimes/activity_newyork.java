@@ -39,6 +39,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
 
+/**
+ * This class displays the page which the user can use the key words to search the article from the New York Times website.
+ * When click the title can go the detail page
+ */
 public class activity_newyork extends AppCompatActivity {
 
     //find the widgets from the layout
@@ -56,7 +60,10 @@ public class activity_newyork extends AppCompatActivity {
     public static final String ITEM_LINK = "LINK";
     public static final String ITEM_DESCRIPTION = "ITEM_DESCRIPTION";
 
-
+    /**
+     * this method starts the activity, and display the search results on the list view
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +123,7 @@ public class activity_newyork extends AppCompatActivity {
 
 
         });
-
+        //save the key word and display it next time when user goes into this page
         sp = getSharedPreferences("KeyValue", Context.MODE_PRIVATE);
         String saveString = sp.getString("kewWord", "");
         sView.setQuery(saveString, false);
@@ -125,6 +132,9 @@ public class activity_newyork extends AppCompatActivity {
 
     }
 
+    /**
+     * put the key word in to a sharedPreferences object
+     */
     @Override
     protected void onPause(){
         super.onPause();
@@ -138,12 +148,24 @@ public class activity_newyork extends AppCompatActivity {
         editor.commit();
     }
 
+    /**
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //coming back from the Profile activity
 
     }
 
+    /**
+     * display the menu
+     * @param menu
+     * @return
+     */
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
@@ -153,6 +175,11 @@ public class activity_newyork extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * when click the different menu, implements different functions
+     * @param item
+     * @return
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -181,11 +208,12 @@ public class activity_newyork extends AppCompatActivity {
                 startActivity(saved);
                 break;
         }
-
-
         return true;
     }
-    //the dialog shows the information of the article
+
+    /**
+     * the dialog shows the information of the article
+     */
     private void customDialog(){
         LayoutInflater inflater = getLayoutInflater();
         View v = inflater.inflate(R.layout.customdialog_newyork, null);
@@ -197,7 +225,9 @@ public class activity_newyork extends AppCompatActivity {
         builder.create().show();
     }
 
-    //the adapter for the list view
+    /**
+     * the adapter for the list view
+     */
     private class MyOwnAdapter extends BaseAdapter {
         public MyOwnAdapter() {
             super();
@@ -213,6 +243,13 @@ public class activity_newyork extends AppCompatActivity {
             return tNewsFound.get(position);
         }
 
+        /**
+         * this method get the view for the list view single row
+         * @param position
+         * @param old
+         * @param parent
+         * @return
+         */
         @Override
         public View getView(int position, View old, ViewGroup parent) {
 
@@ -222,7 +259,6 @@ public class activity_newyork extends AppCompatActivity {
             newView = inflater.inflate(R.layout.single_row_newyork, null);
             TextView rowText = newView.findViewById(R.id.rowNews);
             rowText.setText(messageToShow.getTitle());
-
 
             return newView;
         }
@@ -234,7 +270,10 @@ public class activity_newyork extends AppCompatActivity {
         }
     }
 
-    //a inner class extends the AsyncTask
+    /**
+     * a inner class extends the AsyncTask, to get the data from the HTTP page
+     */
+
     private class NewsQuery extends AsyncTask<String, Integer, String> {
         //variables
         private String title;

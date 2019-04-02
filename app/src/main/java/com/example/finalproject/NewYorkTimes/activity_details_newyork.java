@@ -19,6 +19,9 @@ import android.widget.Toast;
 
 import com.example.finalproject.R;
 
+/**
+ * this is a fragment to display the details for an article
+ */
 public class activity_details_newyork extends Fragment {
 
     private Bundle dataFromActivity;
@@ -27,6 +30,13 @@ public class activity_details_newyork extends Fragment {
     Button back;
     Toolbar tBar;
 
+    /**
+     * Override the onCreateView method to display the details
+     * @param inflater
+     * @param container
+     * @param savedInstanceState
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -57,17 +67,18 @@ public class activity_details_newyork extends Fragment {
         TextView desView = (TextView)result.findViewById(R.id.description);
         desView.setText(dataFromActivity.getString(activity_newyork.ITEM_DESCRIPTION) +"\n");
 
-        // get the delete button, and add a click listener:
+        // add a click listener for save button:
         save.setOnClickListener( clk -> {
 
             Toast.makeText(getActivity(), "Saved", Toast.LENGTH_LONG).show();
 
         });
 
+        //back button to go back to the previous page
         back.setOnClickListener( clk -> {
 
-            Snackbar sb = Snackbar.make(tBar, "Go Back?", Snackbar.LENGTH_LONG)
-                    .setAction("Yes", e -> {
+            Snackbar sb = Snackbar.make(tBar, getResources().getString(R.string.backSnack), Snackbar.LENGTH_LONG)
+                    .setAction(getResources().getString(R.string.yes), e -> {
                         getActivity().finish();
                     });
             sb.show();

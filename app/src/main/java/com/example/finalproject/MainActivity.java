@@ -8,6 +8,9 @@ import android.widget.Button;
 import com.example.finalproject.NewYorkTimes.activity_newyork;
 import com.example.finalproject.NewsFeed.NewsFeed;
 
+/**
+ * this class displays four buttons. When clicking each button will go to the related activity page
+ */
 public class MainActivity extends AppCompatActivity {
 
     Button dicBt;

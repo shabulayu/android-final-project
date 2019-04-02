@@ -5,6 +5,9 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.example.finalproject.R;
 
+/**
+ * this class to handle the fragment
+ */
 public class Empty_newyork extends AppCompatActivity {
 
     @Override
@@ -14,7 +17,6 @@ public class Empty_newyork extends AppCompatActivity {
 
         Bundle dataToPass = getIntent().getExtras(); //get the data that was passed from FragmentExample
 
-        //This is copied directly from FragmentExample.java lines 47-54
         activity_details_newyork dFragment = new activity_details_newyork();
         dFragment.setArguments( dataToPass ); //pass data to the the fragment
         getSupportFragmentManager()
