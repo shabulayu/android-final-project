@@ -1,7 +1,9 @@
 package com.example.finalproject.NewYorkTimes;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -47,6 +49,8 @@ public class activity_newyork extends AppCompatActivity {
     View newView;
     ArrayList<TimesNews> tNewsFound = new ArrayList<>();
     MyOwnAdapter adt;
+    SharedPreferences sp;
+    String searchText;
     public static final String ITEM_TITLE = "TITLE";
     public static final String ITEM_AUTHOR = "AUTHOR";
     public static final String ITEM_LINK = "LINK";
@@ -113,21 +117,31 @@ public class activity_newyork extends AppCompatActivity {
 
         });
 
+        sp = getSharedPreferences("KeyValue", Context.MODE_PRIVATE);
+        String saveString = sp.getString("kewWord", "");
+        sView.setQuery(saveString, false);
+
         adt.notifyDataSetChanged();
-        
+
+    }
+
+    @Override
+    protected void onPause(){
+        super.onPause();
+
+        //get an editor object
+        SharedPreferences.Editor editor = sp.edit();
+        //save what was typed under the name "kewWord"
+        String whatWasTyped = sView.getQuery().toString();
+        editor.putString("kewWord", whatWasTyped);
+        //write it to disk:
+        editor.commit();
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //coming back from the Profile activity
-        if(requestCode == 345)
-        {
-            if(resultCode == RESULT_OK) //if you hit the delete button instead of back button
-            {
-                //long id = data.getLongExtra(ITEM_ID, 0);
-               // deleteMessageId((int)id);
-            }
-        }
+
     }
 
     @Override
@@ -233,7 +247,6 @@ public class activity_newyork extends AppCompatActivity {
         protected String doInBackground(String... params) {
 
             //read the JSON file from the New York Times website
-            String searchText;
             searchText = sView.getQuery().toString();
             InputStream inStream = null;
             URL UVurl = null;

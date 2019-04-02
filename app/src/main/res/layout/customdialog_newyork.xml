@@ -9,17 +9,17 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:id="@+id/author"
-        android:text="Author: Yongli Wang"/>
+        android:text="@string/wang"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/number"
-        android:text="Version Number: 1.0"/>
+        android:text="@string/verN"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/instruction"
-        android:text="Instruction: This page is used to search the articles from the New York Times websites. The users can save and delete the article. When the user clicks one article, it will shows the details of the article."/>
+        android:text="@string/desN"/>
 </LinearLayout>
