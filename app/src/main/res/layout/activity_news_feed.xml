@@ -11,11 +11,12 @@
         android:layout_width="match_parent"
         android:id="@+id/toolbar">
         <TextView
-            android:text="NewsFeed"
+            android:text="@string/News"
             android:textSize="30dp"
             android:layout_gravity="center"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content" />
+
     </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.SearchView
@@ -25,7 +26,7 @@
         app:iconifiedByDefault="false"
         android:imeOptions="actionSearch"
         android:layout_below="@+id/toolbar"
-        app:queryHint="Search here" />
+        app:queryHint="@string/Search" />
 
 
     <ListView
@@ -35,7 +36,7 @@
         android:layout_below="@+id/searchview"/>
 
     <ProgressBar
-        android:layout_below="@+id/titleList"
+        android:layout_below="@+id/searchview"
         android:id="@+id/proBar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"

@@ -3,6 +3,7 @@ package com.example.finalproject.NewsFeed;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,6 +20,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,12 +39,19 @@ import java.util.ArrayList;
 
 public class NewsFeed extends AppCompatActivity {
 
-    //ArticleAdapter adt;
-    Article article;
-    ArrayList<String> articles = new ArrayList<>();
+    ArticleAdapter adt;
+
+    ArticleQuery aq;
+    ArrayList<Article> articles = new ArrayList<>();
     ArrayAdapter<String> listAdt;
     Toolbar tBar;
     SearchView sView;
+    ProgressBar pBar;
+    ListView tList;
+    String txt = "";
+    Article article;
+    Article showArticle = new Article();
+    ArrayList<Article> showArticles = new ArrayList<>();
 
 
     @Override
@@ -50,47 +59,62 @@ public class NewsFeed extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_news_feed);
 
-        //adt = new ArticleAdapter();
-
-        ArticleQuery aq = new ArticleQuery();
+        adt = new ArticleAdapter();
 
         tBar = findViewById(R.id.toolbar);
-        ListView tList = findViewById(R.id.titleList);
+        tList = findViewById(R.id.titleList);
         sView = findViewById(R.id.searchview);
+        pBar= findViewById(R.id.proBar);
+        pBar.setVisibility(View.INVISIBLE);
+
 
         setSupportActionBar(tBar);
-        listAdt = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, articles);
+
 
         sView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 Log.i("search", "onCreate: search");
-                aq.execute();
-                if(articles.size()==0){
-                    Toast.makeText(NewsFeed.this, "article not found", Toast.LENGTH_SHORT).show();
+                if(s.length()==0||s==null){
+                    Toast.makeText(NewsFeed.this,"please enter your search word",Toast.LENGTH_SHORT).show();
+                }else{
+                    aq = new ArticleQuery();
+                    showArticles.clear();
+                    adt.notifyDataSetChanged();
+                    aq.execute();
                 }
-                listAdt.notifyDataSetChanged();
-                return true;
+
+                Log.i("onQueryTextSubmit", "text: "+s);
+                //listAdt.notifyDataSetChanged();
+                return false;
             }
 
             @Override
             public boolean onQueryTextChange(String s) {
-//                if(TextUtils.isEmpty(s)){
-//                    Toast.makeText(NewsFeed.this, "please enter your search word", Toast.LENGTH_SHORT).show();
-//                }else{
-//                    aq.execute();
-//
-//                    listAdt.notifyDataSetChanged();
-//                }
+                tList.setFilterText(s);
+                Log.i("onQueryTextChange", " new text: "+s);
+                adt.notifyDataSetChanged();
                 return false;
             }
         });
 
+        tList.setAdapter(adt);
+        //listAdt = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, showTitle);
+        tList.setOnItemClickListener((parent, view, position, id)-> {
+                    //positionClicked = position;
+                    //databaseID = id;
+            Bundle dataToPass = new Bundle();
+            dataToPass.putString("title",showArticles.get(position).getTitle());
+            dataToPass.putString("text",showArticles.get(position).getText());
+            dataToPass.putString("author",showArticles.get(position).getAuthor());
+            dataToPass.putString("url",showArticles.get(position).getUrl());
 
+            Intent nextActivity = new Intent(NewsFeed.this, NewsArticle.class);
+            nextActivity.putExtras(dataToPass); //send data to next activity
+            startActivity(nextActivity); //make the transition
 
-        tList.setAdapter(listAdt);
-
-
+        });
+        adt.notifyDataSetChanged();
     }
 
     /**
@@ -119,9 +143,17 @@ public class NewsFeed extends AppCompatActivity {
                 alert();
                 break;
             case R.id.item2:
-                startActivity(new Intent(this,SavedArticle.class));
+                startActivity(new Intent(this,NewsSavedArticle.class));
                 break;
+            case R.id.item3:
 
+                break;
+            case R.id.item4:
+
+                break;
+            case R.id.item5:
+
+                break;
         }
         return true;
     }
@@ -132,11 +164,11 @@ public class NewsFeed extends AppCompatActivity {
      */
     public void alert(){
 
-        View dia = getLayoutInflater().inflate(R.layout.dialog_help, null);
+        View help = getLayoutInflater().inflate(R.layout.news_dialog_help, null);
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        //EditText et = (EditText) dia.findViewById(R.id.diaEdit);
-        builder.setView(dia);
+
+        builder.setView(help);
         builder
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
@@ -144,13 +176,8 @@ public class NewsFeed extends AppCompatActivity {
 
 
                     }
-                })
-                .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-
-                        dialog.cancel();
-                    }
                 });
+
         builder.create().show();
     }
 
@@ -161,12 +188,12 @@ public class NewsFeed extends AppCompatActivity {
 
         @Override
         public int getCount() {
-            return articles.size();
+            return showArticles.size();
         }
 
         @Override
-        public String getItem(int position) {
-            return articles.get(position);
+        public Article getItem(int position) {
+            return showArticles.get(position);
         }
 
         @Override
@@ -179,28 +206,35 @@ public class NewsFeed extends AppCompatActivity {
             LayoutInflater inflater =getLayoutInflater();
             View newView = null;
 
+            showArticle = getItem(position);
 
-            newView = inflater.inflate(R.layout.list_title,parent,false);
+            newView = inflater.inflate(R.layout.news_list_title,parent,false);
             TextView t = newView.findViewById(R.id.title);
+            String show = showArticle.getTitle();
+            t.setText(show);
 
-            t.setText(articles.get(position));
 
-
-            Log.i("getview", "getView: getview length: "+articles.size());
+            Log.i("getview", "getView: getview length: "+showArticles.size());
             return newView;
         }
     }
 
     private class ArticleQuery extends AsyncTask<String, Integer, String>{
 
-        String t ="";
+        String title ="";
+        String text ="";
+        String author="";
+        String link="";
         String searchText="";
+
 
         @Override
         protected String doInBackground(String... strings) {
+
             publishProgress(0);
             try {
-                String urlString = "http://webhose.io/filterWebContent?token=b1b5bd7e-d181-4a89-b0cf-d8997993ae22&format=xml&sort=crawled&q=stock%20market%20language%3Aenglish";
+                searchText = sView.getQuery().toString();
+                String urlString = "http://webhose.io/filterWebContent?token=2efeac2a-cdc0-49c0-8b06-660ba5937a48&format=xml&sort=crawled&q="+searchText;
                 URL url = new URL(urlString);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 InputStream inStream = conn.getInputStream();
@@ -214,26 +248,44 @@ public class NewsFeed extends AppCompatActivity {
                 XmlPullParser xpp = factory.newPullParser();
                 xpp.setInput( inStream  , "UTF-8");
 
+                publishProgress(25);
 
-                searchText = sView.getQuery().toString();
                 while(xpp.getEventType() != XmlPullParser.END_DOCUMENT){
+
                     Log.i("connected", "doInBackground: in while loop");
                     if(xpp.getEventType() == XmlPullParser.START_TAG){
                         String tagName = xpp.getName();
                         Log.i("connected", "doInBackground: in while loop start tag"+tagName);
 
+                        if(tagName.equals("post")){
+                            article = new Article();
+                        }
                         if(tagName.equals("title_full")){
                             Log.i("connected", "doInBackground: in while loop title tag");
 
-                            t = xpp.nextText();
-                                if(t.contains(searchText)){
-                                    Log.i("text", "doInBackground: length: "+articles.size());
-
-                                    articles.add(t);
-
-                                }
+                            title = xpp.nextText();
+                            article.setTitle(title);
 
 
+                        }else if (tagName.equals("url")){
+                            Log.i("url", "doInBackground: got url");
+                            link = xpp.nextText();
+                            article.setUrl(link);
+
+                        }else if(tagName.equals("text")){
+                            Log.i("text", "doInBackground: got text");
+                            text = xpp.nextText();
+                            article.setText(text);
+                        }else if(tagName.equals("author")){
+                            Log.i("author", "doInBackground: got author");
+                            author = xpp.nextText();
+                            article.setAuthor(author);
+                            publishProgress(50);
+                        }
+
+                    }else if(xpp.getEventType() == XmlPullParser.END_TAG){
+                        if(xpp.getName().equals("post")){
+                            articles.add(article);
                         }
                     }
                     xpp.next();
@@ -241,6 +293,7 @@ public class NewsFeed extends AppCompatActivity {
                 }
             } catch (IOException e) {
                 e.printStackTrace();
+
             } catch (XmlPullParserException e) {
                 e.printStackTrace();
             }
@@ -248,12 +301,27 @@ public class NewsFeed extends AppCompatActivity {
         }
         @Override
         protected void onProgressUpdate(Integer... values) {
-
+            pBar.setVisibility(View.VISIBLE);
+            pBar.setProgress(values[0]);
         }
 
         @Override
         protected void onPostExecute(String s) {
-            listAdt.notifyDataSetChanged();
+
+            for(Article a: articles){
+                if(a.getTitle().contains(searchText)){
+                    showArticles.add(a);
+                }
+            }
+
+            if(showArticles.size()==0){
+                Toast.makeText(NewsFeed.this, "article not found", Toast.LENGTH_SHORT).show();
+                Snackbar.make(tBar, "article not found", Snackbar.LENGTH_LONG).setAction("OK",(a->{})).show();
+            }
+            adt.notifyDataSetChanged();
+
+            pBar.setVisibility(View.INVISIBLE);
+            //sView.setQuery("",false);
         }
     }
 }

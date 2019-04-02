@@ -20,9 +20,7 @@
            android:layout_gravity="fill"
            android:textAlignment="center"
            android:textSize="15dp"
-           android:text="Merriam
-Webster
-Dictionary">
+           android:text="@string/Dictionary">
 
        </Button>
 
@@ -38,7 +36,7 @@ Dictionary">
             android:layout_gravity="fill"
             android:textAlignment="center"
             android:textSize="15dp"
-            android:text="News Feed">
+            android:text="@string/News">
         </Button>
 
         <Button
@@ -53,9 +51,7 @@ Dictionary">
             android:layout_gravity="fill"
             android:textAlignment="center"
             android:textSize="15dp"
-            android:text="Flight
-Status
-tracker">
+            android:text="@string/Flight">
         </Button>
         <Button
             android:id="@+id/searchBt"
@@ -69,9 +65,7 @@ tracker">
             android:layout_gravity="fill"
             android:textAlignment="center"
             android:textSize="15dp"
-            android:text="New York
-Times Article
-Search">
+            android:text="@string/Article">
         </Button>
 
 
