@@ -13,4 +13,10 @@
         搜索，如果用户喜欢某篇文章，可通过存储按钮添加该文章到本地数据库。</string>
     <string name="help">帮助</string>
     <string name="save">保存</string>
+    <string name="newYork">纽约时报新闻</string>
+    <string name="savedNews">已保存文章</string>
+    <string name="savedN">保存</string>
+    <string name="backN">返回</string>
+
+
 </resources>

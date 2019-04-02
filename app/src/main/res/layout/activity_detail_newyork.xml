@@ -1,33 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"/>
+
     <TextView android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="test title"
+        android:layout_below="@+id/toolbar"
         android:id="@+id/title"/>
     <TextView android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="test author"
+        android:layout_below="@+id/title"
         android:id="@+id/author"/>
     <TextView android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="test link"
-        android:id="@+id/link"/>
+        android:layout_below="@+id/author"
+        android:id="@+id/link"
+        android:autoLink="web"/>
     <TextView android:layout_height="wrap_content"
         android:layout_width="wrap_content"
-        android:text="test description"
+        android:layout_below="@+id/link"
         android:id="@+id/description"/>
+
     <Button
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:text="Delete"
-        android:id="@+id/deleteButton"/>
+        android:layout_below="@+id/description"
+        android:layout_alignParentLeft="true"
+        android:text="@string/savedN"
+        android:background="@color/design_default_color_primary"
+        android:id="@+id/saveButton"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/description"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:text="@string/backN"
+        android:background="@color/design_default_color_primary"
+        android:id="@+id/snackTest"/>
 
 
-</LinearLayout>
+</RelativeLayout>

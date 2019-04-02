@@ -68,8 +68,6 @@ public class activity_newyork extends AppCompatActivity {
         setSupportActionBar(tBar);
         //initialize the inner class
         adt = new MyOwnAdapter();
-        //set the progress bar
-        pBar.setVisibility(View.VISIBLE);
 
         //search the article then put it in the array list
         SearchView sView = (SearchView)findViewById(R.id.search);
@@ -78,19 +76,25 @@ public class activity_newyork extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 NewsQuery news = new NewsQuery();
                 tNewsFound.clear();
-                news.execute();
+                if(query.length()==0||query==null){
+                    Toast.makeText(activity_newyork.this,"Please enter the key words to search",Toast.LENGTH_LONG).show();
+                }else {
+                    //set the progress bar
+                    pBar.setVisibility(View.VISIBLE);
+                    adt.notifyDataSetChanged();
+                    news.execute();
+                }
                 return true;
             }
             @Override
             public boolean onQueryTextChange(String newText) {
-
+                adt.notifyDataSetChanged();
                 return false;
             }  });
 
         //using an adapter object and send it to the listVIew
         listNews.setAdapter(adt);
         //when the data is displayed, invisible the progress bar
-        pBar.setVisibility(View.INVISIBLE);
 
         //when click the list go to the detail page
         listNews.setOnItemClickListener( (list, item, position, id) -> {
@@ -109,9 +113,8 @@ public class activity_newyork extends AppCompatActivity {
 
         });
 
-
-
-
+        adt.notifyDataSetChanged();
+        
     }
 
     @Override
@@ -157,6 +160,11 @@ public class activity_newyork extends AppCompatActivity {
             case R.id.help:
                 //when click the help menu, show the author's name and so on:
                 customDialog();
+                break;
+            case R.id.save_menu:
+                //when click the saved news menu, go to the saved news page
+                Intent saved = new Intent(this, saved_list_newyork.class);
+                startActivity(saved);
                 break;
         }
 
@@ -263,17 +271,24 @@ public class activity_newyork extends AppCompatActivity {
                     JSONObject temp = (JSONObject) arr.get(i);
                     Log.i("test temp:", ""+ temp);
                     title = temp.getJSONObject("headline").getString("main");
+                    publishProgress(25);
                     Log.i("Title is:", ""+ title);
                     author = temp.getJSONObject("byline").getString("original");
+                    publishProgress(40);
                     Log.i("Author is:", ""+ author);
                     link = temp.getString("web_url");
+                    publishProgress(80);
                     Log.i("Link is:", ""+ link);
                     description = temp.getString("lead_paragraph");
+                    publishProgress(100);
                     Log.i("Description is:", ""+ description);
                     //put the information to the TimesNews object
                     tNews = new TimesNews(title, author, link, description);
                     //add this news article to the array list
                     tNewsFound.add(tNews);
+                }
+                if(tNewsFound.size() == 0){
+                    Toast.makeText(activity_newyork.this,"Do not find any result",Toast.LENGTH_LONG).show();
                 }
                 Thread.sleep(2000); //pause for 2000 milliseconds to watch the progress bar spin
 
@@ -292,6 +307,7 @@ public class activity_newyork extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             //set the Progress bar invisible when finish display the data
+            adt.notifyDataSetChanged();
             pBar.setVisibility(View.INVISIBLE);
         }
     }
