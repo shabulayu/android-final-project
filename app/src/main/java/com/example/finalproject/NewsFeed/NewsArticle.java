@@ -13,6 +13,9 @@ import com.example.finalproject.R;
 
 import java.util.ArrayList;
 
+/**
+ * This class shows the details of selected article from News feed main page.
+ */
 public class NewsArticle extends AppCompatActivity {
 
     TextView title;
@@ -44,13 +47,16 @@ public class NewsArticle extends AppCompatActivity {
         //db = database.getWritableDatabase();
 
         setSupportActionBar(tBar);
+        //get data from last page
         Bundle dataReceive = this.getIntent().getExtras();
         title.setText(dataReceive.getString("title"));
         text.setText(dataReceive.getString("text"));
         author.setText(dataReceive.getString("author"));
         url.setText(dataReceive.getString("url"));
 
+
         getSupportActionBar().setDisplayShowTitleEnabled(false);
+        //set the scroll bar if the article is too long
         text.setMovementMethod(ScrollingMovementMethod.getInstance());
 
 //        saveBt.setOnClickListener(a->{

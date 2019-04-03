@@ -5,6 +5,9 @@ import android.os.Bundle;
 
 import com.example.finalproject.R;
 
+/**
+ * this activity is to show saved article
+ */
 public class NewsSavedArticle extends AppCompatActivity {
 
     @Override
