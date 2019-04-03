@@ -14,7 +14,7 @@
     <string name="flight_status_tracer">航班信息查询</string>
     <string name="search">搜索</string>
     <string name="delete">删除</string>
-  
+
 
     <string name="Dictionary">韦氏字典</string>
     <string name="News">新闻递送</string>
@@ -44,6 +44,10 @@
     <string name="labelN">您的标签： </string>
 
 
-
+    <string name="dic_search">在梅里亚姆-韦伯斯特字典里搜索</string>
+    <string name="dic_Message">欢迎使用梅里亚姆-韦伯斯特字典</string>
+    <string name="dic_definition">定义 </string>
+    <string name="dic_type">输入单词 </string>
+    <string name="action_settings">帮助</string>
 
 </resources>

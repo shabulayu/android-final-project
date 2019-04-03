@@ -14,6 +14,9 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.finalproject.Flight.FlightMainActivity;
+import com.example.finalproject.NewYorkTimes.activity_newyork;
+import com.example.finalproject.NewsFeed.NewsFeed;
 import com.example.finalproject.R;
 
 /**
@@ -90,15 +93,15 @@ public class Dictionary extends AppCompatActivity {
         {
             //what to do when the menu item is selected:
             case R.id.feed:
-                Intent feed=new Intent(Dictionary.this,NewsFeed.class);
+                Intent feed=new Intent(Dictionary.this, NewsFeed.class);
                 startActivity(feed);
                 return true;
             case R.id.flight:
-                Intent flight=new Intent(Dictionary.this,FlightMainActivity.class);
+                Intent flight=new Intent(Dictionary.this, FlightMainActivity.class);
                 startActivity(flight);
                 return true;
             case R.id.news:
-                Intent news= new Intent(Dictionary.this,activity_newyork.class);
+                Intent news= new Intent(Dictionary.this, activity_newyork.class);
                 startActivity(news);
                 return true;
 

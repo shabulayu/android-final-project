@@ -7,7 +7,7 @@ import android.widget.Button;
 
 import com.example.finalproject.Dictionary.Dictionary;
 
-=======
+
 
 import com.example.finalproject.Flight.FlightMainActivity;
 
@@ -40,9 +40,10 @@ public class MainActivity extends AppCompatActivity {
         dicBt.setOnClickListener(a -> {
             Intent dic=new Intent(this, Dictionary.class);
             startActivity(dic);
-=======
-        Intent news = new Intent(this, NewsFeed.class);
+        });
+
         newsBt.setOnClickListener(a->{
+            Intent news = new Intent(this, NewsFeed.class);
             startActivity(news);
         });
 
@@ -50,10 +51,12 @@ public class MainActivity extends AppCompatActivity {
         flightBt.setOnClickListener(b->{
             Intent flight = new Intent(this, FlightMainActivity.class);
             startActivity(flight);
-
+        });
         //click the New York news button, then go the New York news search page
-        Intent newYork = new Intent(this, activity_newyork.class);
+
         searchBt .setOnClickListener(a->{
+            Intent newYork = new Intent(this, activity_newyork.class);
+
             startActivity(newYork);
 
 

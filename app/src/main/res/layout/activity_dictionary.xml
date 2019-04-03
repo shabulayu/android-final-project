@@ -18,7 +18,7 @@
         android:id="@+id/Editxt_search"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="@string/search"
+        android:hint="@string/dic_search"
         android:layout_alignParentStart="true"
         android:layout_marginTop="10dp"
         android:layout_marginLeft="20dp"/>
