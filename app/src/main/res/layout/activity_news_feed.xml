@@ -26,17 +26,23 @@
         app:iconifiedByDefault="false"
         android:imeOptions="actionSearch"
         android:layout_below="@+id/toolbar"
-        app:queryHint="@string/Search" />
+        app:queryHint="@string/feed_Search" />
 
-
+    <EditText
+        android:id="@+id/numArticle"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:hint="Number of articles"
+        android:layout_below="@id/searchview"/>
     <ListView
         android:id="@+id/titleList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/searchview"/>
+        android:layout_below="@+id/numArticle"/>
+
 
     <ProgressBar
-        android:layout_below="@+id/searchview"
+        android:layout_below="@+id/numArticle"
         android:id="@+id/proBar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
