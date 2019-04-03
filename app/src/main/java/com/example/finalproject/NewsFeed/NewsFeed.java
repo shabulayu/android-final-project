@@ -28,6 +28,9 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.example.finalproject.Dictionary.Dictionary;
+import com.example.finalproject.Flight.FlightMainActivity;
+import com.example.finalproject.NewYorkTimes.activity_newyork;
 import com.example.finalproject.R;
 
 import org.xmlpull.v1.XmlPullParser;
@@ -158,13 +161,16 @@ public class NewsFeed extends AppCompatActivity {
                 startActivity(new Intent(this,NewsSavedArticle.class));
                 break;
             case R.id.item3:
-
+                Intent air = new Intent(this, FlightMainActivity.class);
+                startActivity(air);
                 break;
             case R.id.item4:
-
+                Intent dic = new Intent(this, Dictionary.class);
+                startActivity(dic);
                 break;
             case R.id.item5:
-
+                Intent newyork = new Intent(this, activity_newyork.class);
+                startActivity(newyork);
                 break;
         }
         return true;

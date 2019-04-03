@@ -39,7 +39,7 @@ public class Dictionary extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dictionary);
         Toolbar tBar = (Toolbar)findViewById(R.id.toolbar);
-//        setSupportActionBar(tBar);
+        setSupportActionBar(tBar);
 
         mImageButton= (ImageButton)findViewById(R.id.image);
         mImageButton.setOnClickListener(a->{
