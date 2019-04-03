@@ -228,7 +228,7 @@ public class activity_newyork extends AppCompatActivity {
     /**
      * the adapter for the list view
      */
-    private class MyOwnAdapter extends BaseAdapter {
+    protected class MyOwnAdapter extends BaseAdapter {
         public MyOwnAdapter() {
             super();
         }
