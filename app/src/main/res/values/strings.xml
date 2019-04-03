@@ -1,18 +1,42 @@
 <resources>
     <string name="app_name">final project</string>
+
+    <string name="dic_search">Search in Merriam Webster Dictionary</string>
+    <string name="dic_Message">Welcome to use Merriam Webster Dictionary</string>
+    <string name="dic_definition">DEFINITION </string>
+    <string name="dic_type">Enter a word to search. </string>
+
+    <string name="action_settings">Help</string>
+=======
+
+    <string name="flight_positive">OK</string>
+    <string name="flight_instruction_title">Flight Help Instruction</string>
+    <string name="flight_help">"Author: Danyao Wang \n" +
+        "Version: 0.0.2 \n"+
+        "Instructions: \n"
+        "1. You can track flight information according to flight number on home page.\n"
+        "2. Click the selected flight for detailed information.\n"
+        "3. Save the flight for updating and delete the saved flight from the list.\n"
+    </string>
+    <string name="flight_status_tracer">Flight Status Tracer</string>
+    <string name="search">search</string>
+    <string name="save">SAVE</string>
+    <string name="delete">DELETE</string>
+    <string name="help">help</string>
+=======
     <string name="Dictionary">Merriam Webster Dictionary</string>
     <string name="News">News Feed</string>
     <string name="Flight">Flight Status tracker</string>
     <string name="Article">New York Times Article Search</string>
-    <string name="Search">Search Here</string>
+    <string name="feed_Search">Search Here</string>
     <string name="savedTitle">Saved article</string>
-    <string name="author">APP developer: Siyuan Yu</string>
-    <string name="version">Version1.0</string>
-    <string name="instruction">Users can read NEWS stories on the NEWS CRAWLER website through this app.
+    <string name="feed_author">APP developer: Siyuan Yu</string>
+    <string name="feed_version">Version1.0</string>
+    <string name="feed_instruction">Users can read NEWS stories on the NEWS CRAWLER website through this app.
         This app also provides keyword search for article title. If users like an article, they can add the article to the local database
         using the save button.</string>
-    <string name="help">Help</string>
-    <string name="save">save</string>
+
+   
     <string name="newYork">New York Times News</string>
     <string name="savedNews">Saved News</string>
     <string name="savedN">SAVE</string>
@@ -29,6 +53,10 @@
     <string name="labelN">Your Label: </string>
     <string name="saveList">New York Times News Saved List</string>
     <string name="notNeed">This article is not been saved, do not need to delete!</string>
+
+
+ 
+
 
 
 

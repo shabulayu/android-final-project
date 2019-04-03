@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -19,6 +20,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -37,23 +40,29 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
+/**
+ * This activity is the main page of NewsFeed app. it has search box to search related title from
+ * a News Crawler site: https://webhose.io. The results will be listed in a list view. User can click
+ * the item on list view to read details.
+ */
 public class NewsFeed extends AppCompatActivity {
 
     ArticleAdapter adt;
-
     ArticleQuery aq;
-    ArrayList<Article> articles = new ArrayList<>();
-    ArrayAdapter<String> listAdt;
     Toolbar tBar;
+    EditText numArt;
     SearchView sView;
     ProgressBar pBar;
     ListView tList;
-    String txt = "";
     Article article;
+    ArrayList<Article> articles = new ArrayList<>();
     Article showArticle = new Article();
     ArrayList<Article> showArticles = new ArrayList<>();
 
-
+    /**
+     * onCreate method to initialize the view of this page
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,17 +75,19 @@ public class NewsFeed extends AppCompatActivity {
         sView = findViewById(R.id.searchview);
         pBar= findViewById(R.id.proBar);
         pBar.setVisibility(View.INVISIBLE);
-
+        numArt = findViewById(R.id.numArticle);
 
         setSupportActionBar(tBar);
 
-
+        //search view submit function
         sView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
                 Log.i("search", "onCreate: search");
                 if(s.length()==0||s==null){
+                    Log.i("search", "onQueryTextSubmit: no search word");
                     Toast.makeText(NewsFeed.this,"please enter your search word",Toast.LENGTH_SHORT).show();
+
                 }else{
                     aq = new ArticleQuery();
                     showArticles.clear();
@@ -100,9 +111,10 @@ public class NewsFeed extends AppCompatActivity {
 
         tList.setAdapter(adt);
         //listAdt = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, showTitle);
+
+        //list view click listener.
         tList.setOnItemClickListener((parent, view, position, id)-> {
-                    //positionClicked = position;
-                    //databaseID = id;
+
             Bundle dataToPass = new Bundle();
             dataToPass.putString("title",showArticles.get(position).getTitle());
             dataToPass.putString("text",showArticles.get(position).getText());
@@ -182,7 +194,8 @@ public class NewsFeed extends AppCompatActivity {
     }
 
     /**
-     * the class that save listview(in this case is titles)
+     * Class that save list view
+     * In this case, showArticles is the article that its title matches the search word
      */
     protected class ArticleAdapter extends BaseAdapter{
 
@@ -219,6 +232,9 @@ public class NewsFeed extends AppCompatActivity {
         }
     }
 
+    /**
+     * This class is to get data from internet.
+     */
     private class ArticleQuery extends AsyncTask<String, Integer, String>{
 
         String title ="";
@@ -243,6 +259,7 @@ public class NewsFeed extends AppCompatActivity {
                 conn.setConnectTimeout(15000 /* milliseconds */);
                 conn.setRequestMethod("GET");
 
+                //set xml pull parser
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
                 factory.setNamespaceAware(false);
                 XmlPullParser xpp = factory.newPullParser();
@@ -282,7 +299,7 @@ public class NewsFeed extends AppCompatActivity {
                             article.setAuthor(author);
                             publishProgress(50);
                         }
-
+                        //when it arrives end tag, it means the end of information for one article
                     }else if(xpp.getEventType() == XmlPullParser.END_TAG){
                         if(xpp.getName().equals("post")){
                             articles.add(article);
@@ -308,20 +325,28 @@ public class NewsFeed extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
 
+            //when the article's title contains search text, add this article into showArticles array
             for(Article a: articles){
                 if(a.getTitle().contains(searchText)){
                     showArticles.add(a);
                 }
             }
 
+            //pop up a toast and snack bar when there is no result
             if(showArticles.size()==0){
                 Toast.makeText(NewsFeed.this, "article not found", Toast.LENGTH_SHORT).show();
-                Snackbar.make(tBar, "article not found", Snackbar.LENGTH_LONG).setAction("OK",(a->{})).show();
+                Snackbar snack = Snackbar.make(tBar, "article not found", Snackbar.LENGTH_LONG);
+                View view = snack.getView();
+                FrameLayout.LayoutParams params =(FrameLayout.LayoutParams)view.getLayoutParams();
+                params.gravity = Gravity.TOP;
+                view.setLayoutParams(params);
+                snack.setAction("OK",(a->{})).show();
             }
+            numArt.setText("Number of articles: "+showArticles.size()+"");
             adt.notifyDataSetChanged();
 
             pBar.setVisibility(View.INVISIBLE);
-            //sView.setQuery("",false);
+
         }
     }
 }

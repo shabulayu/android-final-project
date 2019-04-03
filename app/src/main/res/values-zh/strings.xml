@@ -1,15 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">期末项目</string>
+    <string name="app_name">最终项目</string>
+
+    <string name="flight_positive">确认</string>
+    <string name="flight_instruction_title">航班帮助说明</string>
+    <string name="flight_help">"作者: 王丹瑶 \n" +
+        "版本: 0.0.2 \n"+
+        "说明: \n"
+        "1. 在主页面上根据机场编码得到所有航班信息"
+        "2. 点击选取的航班获得详细信息\n"
+        "3. 保存所选航班，进而更新删除已保存航班\n"
+    </string>
+    <string name="flight_status_tracer">航班信息查询</string>
+    <string name="search">搜索</string>
+    <string name="delete">删除</string>
+  
+
     <string name="Dictionary">韦氏字典</string>
     <string name="News">新闻递送</string>
     <string name="Flight">航班状态追踪</string>
     <string name="Article">纽约时报文章搜索</string>
-    <string name="Search">在这里输入搜索内容</string>
+    <string name="feed_Search">在这里输入搜索内容</string>
     <string name="savedTitle">已保存文章</string>
-    <string name="author">本应用开发者：鱼思源</string>
-    <string name="version">版本1.0</string>
-    <string name="instruction">用户可以通过这个应用阅读NEWS CRAWLER网站上的新闻故事，本应用还提供文章标题关键字
+    <string name="feed_author">本应用开发者：鱼思源</string>
+    <string name="feed_version">版本1.0</string>
+    <string name="feed_instruction">用户可以通过这个应用阅读NEWS CRAWLER网站上的新闻故事，本应用还提供文章标题关键字
         搜索，如果用户喜欢某篇文章，可通过存储按钮添加该文章到本地数据库。</string>
     <string name="help">帮助</string>
     <string name="save">保存</string>
@@ -29,6 +44,7 @@
     <string name="labelN">您的标签： </string>
     <string name="saveList">纽约时报保存文章列表</string>
     <string name="notNeed">这篇文章没有保存， 不需要删除！</string>
+
 
 
 

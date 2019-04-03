@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.finalproject">
 
+   
+=======
+
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
@@ -11,14 +14,26 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+
+        android:theme="@style/AppTheme">
+        <activity android:name=".Dictionary.Dictionary"></activity>
+        <activity android:name=".Dictionary.Dictionary_definition"></activity>
+        <!--<activity android:name=".Dictionary_toolbar"></activity>-->
+=======
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".NewYorkTimes.saved_list_newyork"></activity>
         <activity android:name=".NewsFeed.NewsSavedArticle" />
         <activity android:name=".NewsFeed.NewsArticle" />
         <activity android:name=".NewsFeed.NewsFeed" />
+
+        <activity android:name=".Flight.FlightDetailActivity" />
+        <activity android:name=".Flight.FlightMainActivity" />
+
         <activity android:name=".NewYorkTimes.activity_newyork" />
         <activity android:name=".NewYorkTimes.Empty_newyork" />
+
+
 
         <activity android:name=".MainActivity">
             <intent-filter>
