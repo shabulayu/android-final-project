@@ -13,4 +13,21 @@
         搜索，如果用户喜欢某篇文章，可通过存储按钮添加该文章到本地数据库。</string>
     <string name="help">帮助</string>
     <string name="save">保存</string>
+    <string name="newYork">纽约时报新闻</string>
+    <string name="savedNews">已保存文章</string>
+    <string name="savedN">保存</string>
+    <string name="backN">返回</string>
+
+    <string name="wang">作者：王永丽</string>
+    <string name="verN">版本： 1.0</string>
+    <string name="desN">介绍：这个应用用于用关键词搜索纽约时报网站上得文章； 用户可以保存和删除文章；
+        当用户点击搜索出来得标题时，可以进入到细节页面。</string>
+    <string name="backSnack">确认返回？</string>
+    <string name="yes">是</string>
+    <string name="label">您可以输入您得标签</string>
+    <string name="toastSaved">已保存</string>
+    <string name="labelN">您的标签： </string>
+
+
+
 </resources>
