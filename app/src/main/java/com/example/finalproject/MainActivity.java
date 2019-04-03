@@ -7,6 +7,19 @@ import android.widget.Button;
 
 import com.example.finalproject.Dictionary.Dictionary;
 
+=======
+
+import com.example.finalproject.Flight.FlightMainActivity;
+
+import com.example.finalproject.NewYorkTimes.activity_newyork;
+
+import com.example.finalproject.NewsFeed.NewsFeed;
+import com.example.finalproject.R;
+
+/**
+ * this class displays four buttons. When clicking each button will go to the related activity page
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     Button dicBt;
@@ -23,9 +36,27 @@ public class MainActivity extends AppCompatActivity {
         flightBt = findViewById(R.id.flightBt);
         searchBt = findViewById(R.id.searchBt);
 
+
         dicBt.setOnClickListener(a -> {
-            Intent dic=new Intent(MainActivity.this, Dictionary.class);
+            Intent dic=new Intent(this, Dictionary.class);
             startActivity(dic);
+=======
+        Intent news = new Intent(this, NewsFeed.class);
+        newsBt.setOnClickListener(a->{
+            startActivity(news);
+        });
+
+
+        flightBt.setOnClickListener(b->{
+            Intent flight = new Intent(this, FlightMainActivity.class);
+            startActivity(flight);
+
+        //click the New York news button, then go the New York news search page
+        Intent newYork = new Intent(this, activity_newyork.class);
+        searchBt .setOnClickListener(a->{
+            startActivity(newYork);
+
+
         });
     }
 }
