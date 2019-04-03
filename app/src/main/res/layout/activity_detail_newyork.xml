@@ -29,10 +29,22 @@
         android:layout_below="@+id/link"
         android:id="@+id/description"/>
 
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/description"
+        android:text="@string/labelN"
+        android:id="@+id/labelText"/>
+    <EditText android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:hint="@string/label"
+        android:layout_below="@+id/description"
+        android:layout_toEndOf="@+id/labelText"
+        android:id="@+id/label"/>
+
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/description"
+        android:layout_below="@+id/label"
         android:layout_alignParentLeft="true"
         android:text="@string/savedN"
         android:background="@color/design_default_color_primary"
@@ -41,7 +53,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/description"
+        android:layout_below="@+id/label"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
         android:text="@string/backN"

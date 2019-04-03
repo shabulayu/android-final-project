@@ -1,21 +1,18 @@
 package com.example.finalproject.NewYorkTimes;
 
-import android.app.Activity;
-import android.content.Intent;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.text.Html;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 
 import com.example.finalproject.R;
 
@@ -29,6 +26,9 @@ public class activity_details_newyork extends Fragment {
     Button delete;
     Button back;
     Toolbar tBar;
+    EditText editLabel;
+    SharedPreferences sp;
+    String userLabel;
 
     /**
      * Override the onCreateView method to display the details
@@ -50,6 +50,7 @@ public class activity_details_newyork extends Fragment {
         delete = result.findViewById(R.id.deleteButton);
         back = result.findViewById(R.id.snackTest);
         tBar = result.findViewById(R.id.toolbar);
+        editLabel = result.findViewById(R.id.label);
 
         //show the article title
         TextView title = (TextView)result.findViewById(R.id.title);
@@ -70,7 +71,7 @@ public class activity_details_newyork extends Fragment {
         // add a click listener for save button:
         save.setOnClickListener( clk -> {
 
-            Toast.makeText(getActivity(), "Saved", Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(), getResources().getString(R.string.toastSaved), Toast.LENGTH_LONG).show();
 
         });
 
@@ -83,7 +84,23 @@ public class activity_details_newyork extends Fragment {
                     });
             sb.show();
         });
+            sp = getActivity().getSharedPreferences("UserLables", Context.MODE_PRIVATE);
+            String saveString = sp.getString("label", "");
+            editLabel.setText(saveString);
+
+
         return result;
     }
 
+    @Override
+    public void onPause() {
+        super.onPause();
+        //get an editor object
+        SharedPreferences.Editor editor = sp.edit();
+        //save what was typed under the name "kewWord"
+        String whatWasTyped = editLabel.getText().toString();
+        editor.putString("label", whatWasTyped);
+        //write it to disk:
+        editor.commit();
+    }
 }

@@ -24,6 +24,10 @@
         When the user clicks one article, it will shows the details of the article.</string>
     <string name="backSnack">Go Back?</string>
     <string name="yes">Yes</string>
+    <string name="label">You can enter your word to label it</string>
+    <string name="toastSaved">Saved</string>
+    <string name="labelN">Your Label: </string>
+
 
 
 </resources>

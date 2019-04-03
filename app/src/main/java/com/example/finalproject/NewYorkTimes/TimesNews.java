@@ -16,6 +16,7 @@ import com.example.finalproject.R;
 public class TimesNews {
 
     //article attributes
+    private long id;
     private String title;
     private String author;
     private String link;
@@ -40,7 +41,27 @@ public class TimesNews {
         this.link = link;
         this.description = description;
     }
-
+    public TimesNews(long id, String title, String author, String link, String description) {
+        this.id = id;
+        this.title = title;
+        this.author = author;
+        this.link = link;
+        this.description = description;
+    }
+    /**
+     * getter
+     * @return
+     */
+    public long getId() {
+        return id;
+    }
+    /**
+     * setter
+     * @return
+     */
+    public void setId(long id) {
+        this.id = id;
+    }
     /**
      * getter
      * @return

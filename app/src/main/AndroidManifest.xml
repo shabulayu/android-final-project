@@ -14,12 +14,13 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".NewYorkTimes.saved_list_newyork"></activity>
-        <activity android:name=".seved_activity_newyork" />
+        <activity android:name=".NewYorkTimes.seved_activity_newyork" />
         <activity android:name=".NewsFeed.NewsSavedArticle" />
         <activity android:name=".NewsFeed.NewsArticle" />
         <activity android:name=".NewsFeed.NewsFeed" />
         <activity android:name=".NewYorkTimes.activity_newyork" />
         <activity android:name=".NewYorkTimes.Empty_newyork" />
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
