@@ -20,7 +20,6 @@
 
 
         <activity android:name=".NewYorkTimes.saved_list_newyork"></activity>
-        <activity android:name=".NewYorkTimes.seved_activity_newyork" />
         <activity android:name=".NewsFeed.NewsSavedArticle" />
         <activity android:name=".NewsFeed.NewsArticle" />
         <activity android:name=".NewsFeed.NewsFeed" />
