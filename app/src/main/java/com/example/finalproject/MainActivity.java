@@ -5,10 +5,17 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
 
+
 import com.example.finalproject.Flight.FlightMainActivity;
+
+import com.example.finalproject.NewYorkTimes.activity_newyork;
+
 import com.example.finalproject.NewsFeed.NewsFeed;
 import com.example.finalproject.R;
 
+/**
+ * this class displays four buttons. When clicking each button will go to the related activity page
+ */
 public class MainActivity extends AppCompatActivity {
 
     Button dicBt;
@@ -29,9 +36,16 @@ public class MainActivity extends AppCompatActivity {
             startActivity(news);
         });
 
+
         flightBt.setOnClickListener(b->{
             Intent flight = new Intent(this, FlightMainActivity.class);
             startActivity(flight);
+
+        //click the New York news button, then go the New York news search page
+        Intent newYork = new Intent(this, activity_newyork.class);
+        searchBt .setOnClickListener(a->{
+            startActivity(newYork);
+
         });
     }
 }

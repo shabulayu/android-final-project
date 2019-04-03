@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">final project</string>
+
     <string name="flight_positive">OK</string>
     <string name="flight_instruction_title">Flight Help Instruction</string>
     <string name="flight_help">"Author: Danyao Wang \n" +
@@ -14,4 +15,39 @@
     <string name="save">SAVE</string>
     <string name="delete">DELETE</string>
     <string name="help">help</string>
+=======
+    <string name="Dictionary">Merriam Webster Dictionary</string>
+    <string name="News">News Feed</string>
+    <string name="Flight">Flight Status tracker</string>
+    <string name="Article">New York Times Article Search</string>
+    <string name="feed_Search">Search Here</string>
+    <string name="savedTitle">Saved article</string>
+    <string name="feed_author">APP developer: Siyuan Yu</string>
+    <string name="feed_version">Version1.0</string>
+    <string name="feed_instruction">Users can read NEWS stories on the NEWS CRAWLER website through this app.
+        This app also provides keyword search for article title. If users like an article, they can add the article to the local database
+        using the save button.</string>
+
+    <string name="help">Help</string>
+    <string name="save">save</string>
+    <string name="newYork">New York Times News</string>
+    <string name="savedNews">Saved News</string>
+    <string name="savedN">SAVE</string>
+    <string name="backN">BACK</string>
+    <string name="wang">Author: Yongli Wang</string>
+    <string name="verN">Version Number: 1.0</string>
+    <string name="desN">Instruction: This page is used to search the articles from the New York Times websites.
+        The users can save and delete the article.
+        When the user clicks one article, it will shows the details of the article.</string>
+    <string name="backSnack">Go Back?</string>
+    <string name="yes">Yes</string>
+    <string name="label">You can enter your word to label it</string>
+    <string name="toastSaved">Saved</string>
+    <string name="labelN">Your Label: </string>
+
+
+ 
+
+
+
 </resources>

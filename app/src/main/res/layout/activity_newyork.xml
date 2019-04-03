@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/toolbar"/>
+
+    <TextView
+        android:id="@+id/news"
+        android:text="@string/newYork"
+        android:textSize="25dp"
+        android:layout_below="@+id/toolbar"
+        android:layout_centerInParent="true"
+        android:textColor="@color/design_default_color_primary"
+        android:textStyle="bold"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content" />
+
+    <SearchView
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:iconifiedByDefault="false"
+        android:layout_below="@+id/news"
+        app:queryHint="Please search news here" />
+
+    <ListView
+        android:id="@+id/the_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/search"/>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:id="@+id/progressBar"
+        android:layout_alignParentTop="true"
+        style="?android:attr/progressBarStyleHorizontal"/>
+
+
+</RelativeLayout>

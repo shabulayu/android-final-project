@@ -5,11 +5,14 @@ import android.os.Bundle;
 
 import com.example.finalproject.R;
 
-public class SavedArticle extends AppCompatActivity {
+/**
+ * this activity is to show saved article
+ */
+public class NewsSavedArticle extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_saved_article);
+        setContentView(R.layout.activity_news_saved_article);
     }
 }
