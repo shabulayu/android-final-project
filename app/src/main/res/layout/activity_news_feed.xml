@@ -26,7 +26,7 @@
         app:iconifiedByDefault="false"
         android:imeOptions="actionSearch"
         android:layout_below="@+id/toolbar"
-        app:queryHint="@string/Search" />
+        app:queryHint="@string/feed_Search" />
 
     <EditText
         android:id="@+id/numArticle"

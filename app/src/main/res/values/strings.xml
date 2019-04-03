@@ -4,11 +4,11 @@
     <string name="News">News Feed</string>
     <string name="Flight">Flight Status tracker</string>
     <string name="Article">New York Times Article Search</string>
-    <string name="Search">Search Here</string>
+    <string name="feed_Search">Search Here</string>
     <string name="savedTitle">Saved article</string>
-    <string name="author">APP developer: Siyuan Yu</string>
-    <string name="version">Version1.0</string>
-    <string name="instruction">Users can read NEWS stories on the NEWS CRAWLER website through this app.
+    <string name="feed_author">APP developer: Siyuan Yu</string>
+    <string name="feed_version">Version1.0</string>
+    <string name="feed_instruction">Users can read NEWS stories on the NEWS CRAWLER website through this app.
         This app also provides keyword search for article title. If users like an article, they can add the article to the local database
         using the save button.</string>
     <string name="help">Help</string>

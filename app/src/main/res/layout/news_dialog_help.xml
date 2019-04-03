@@ -9,16 +9,16 @@
         android:id="@+id/author"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="@string/author"/>
+        android:text="@string/feed_author"/>
 
     <TextView
         android:id="@+id/version"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="@string/version"/>
+        android:text="@string/feed_version"/>
     <TextView
         android:id="@+id/instruction"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="@string/instruction"/>
+        android:text="@string/feed_instruction"/>
 </LinearLayout>
