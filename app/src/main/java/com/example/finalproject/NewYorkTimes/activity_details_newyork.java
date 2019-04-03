@@ -20,6 +20,8 @@ import android.widget.Toast;
 
 import com.example.finalproject.R;
 
+import static android.app.Activity.RESULT_OK;
+
 /**
  * this is a fragment to display the details for an article
  */
@@ -121,6 +123,7 @@ public class activity_details_newyork extends Fragment {
             if(idFound){
                 Snackbar sb = Snackbar.make(tBar, getResources().getString(R.string.comfirmD), Snackbar.LENGTH_LONG)
                         .setAction(getResources().getString(R.string.yes), e -> {
+                            int arrayId = saved_list_newyork.tNewsSavd.indexOf(new TimesNews());
                             Log.i("Delete this article:" , " id="+id);
                             saved_list_newyork.tNewsSavd.remove(id);
 
@@ -138,7 +141,6 @@ public class activity_details_newyork extends Fragment {
         sp = getActivity().getSharedPreferences("UserLables", Context.MODE_PRIVATE);
         String saveString = sp.getString("label", "");
         editLabel.setText(saveString);
-
 
         return result;
     }

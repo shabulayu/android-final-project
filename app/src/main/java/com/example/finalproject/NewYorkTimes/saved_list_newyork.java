@@ -63,8 +63,6 @@ public class saved_list_newyork extends AppCompatActivity {
             //add the new Message to the array list:
             tNewsSavd.add(new TimesNews(id, title, author, link, description));
         }
-        adt.notifyDataSetChanged();
-
         //using an adapter object and send it to the listVIew
         savedList.setAdapter(adt);
 
@@ -85,13 +83,6 @@ public class saved_list_newyork extends AppCompatActivity {
 
 
         });
-
-
-
-
-
-
-
 
     }
 
