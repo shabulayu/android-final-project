@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">最终项目</string>
+
+    <string name="flight_positive">确认</string>
+    <string name="flight_instruction_title">航班帮助说明</string>
+    <string name="flight_help">"作者: 王丹瑶 \n" +
+        "版本: 0.0.2 \n"+
+        "说明: \n"
+        "1. 在主页面上根据机场编码得到所有航班信息"
+        "2. 点击选取的航班获得详细信息\n"
+        "3. 保存所选航班，进而更新删除已保存航班\n"
+    </string>
+    <string name="flight_status_tracer">航班信息查询</string>
+    <string name="search">搜索</string>
+    <string name="save">保存</string>
+    <string name="delete">删除</string>
+    <string name="help">帮助</string>
+
     <string name="Dictionary">韦氏字典</string>
     <string name="News">新闻递送</string>
     <string name="Flight">航班状态追踪</string>
@@ -27,6 +43,7 @@
     <string name="label">您可以输入您得标签</string>
     <string name="toastSaved">已保存</string>
     <string name="labelN">您的标签： </string>
+
 
 
 

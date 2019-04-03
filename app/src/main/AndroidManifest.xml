@@ -18,8 +18,13 @@
         <activity android:name=".NewsFeed.NewsSavedArticle" />
         <activity android:name=".NewsFeed.NewsArticle" />
         <activity android:name=".NewsFeed.NewsFeed" />
+
+        <activity android:name=".Flight.FlightDetailActivity" />
+        <activity android:name=".Flight.FlightMainActivity" />
+
         <activity android:name=".NewYorkTimes.activity_newyork" />
         <activity android:name=".NewYorkTimes.Empty_newyork" />
+
 
         <activity android:name=".MainActivity">
             <intent-filter>
