@@ -13,9 +13,8 @@
     </string>
     <string name="flight_status_tracer">航班信息查询</string>
     <string name="search">搜索</string>
-    <string name="save">保存</string>
     <string name="delete">删除</string>
-    <string name="help">帮助</string>
+  
 
     <string name="Dictionary">韦氏字典</string>
     <string name="News">新闻递送</string>
