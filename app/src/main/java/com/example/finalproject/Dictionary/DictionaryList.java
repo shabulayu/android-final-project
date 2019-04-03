@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.finalproject.Dictionary;
 
 public class DictionaryList {
     private String message;

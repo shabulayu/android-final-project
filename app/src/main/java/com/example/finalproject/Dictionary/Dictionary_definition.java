@@ -1,24 +1,20 @@
-package com.example.finalproject;
+package com.example.finalproject.Dictionary;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import com.example.finalproject.R;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -32,9 +28,10 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
+/**
+ * This class present the search functionality for the dictionary
+ */
 public class Dictionary_definition extends AppCompatActivity {
     private ProgressBar progressBar;
 
@@ -49,6 +46,10 @@ public class Dictionary_definition extends AppCompatActivity {
 
     TextView txtV1;
     TextView txtV2;
+
+    /**
+     *Initiation for variables.
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,6 +98,9 @@ public class Dictionary_definition extends AppCompatActivity {
 //        builder.create().show();
 //    }
 
+    /**
+     * This function takes a word input and start searching its definitions on the provided website
+     */
     public class SearchQuery extends AsyncTask<String, Integer, String> {
 
 

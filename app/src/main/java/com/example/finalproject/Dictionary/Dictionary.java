@@ -1,13 +1,11 @@
-package com.example.finalproject;
+package com.example.finalproject.Dictionary;
 
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -16,12 +14,23 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.example.finalproject.R;
+
+/**
+ * This is the main class for dictionary. When the user start searching words, it will jump to the "definition" class.
+ * It also present toolbar on this page.
+ */
 public class Dictionary extends AppCompatActivity {
     String name;
     ImageButton mImageButton;
     EditText et;
     android.content.SharedPreferences sp;
     String s;
+
+    /**
+     * Initiation
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +67,11 @@ public class Dictionary extends AppCompatActivity {
 
     }
 
+    /**
+     * Create menu
+     * @param menu
+     * @return
+     */
     public boolean onCreateOptionsMenu(Menu menu){
         // Inflate the menu items for use in the action bar
         MenuInflater inflater = getMenuInflater();
@@ -65,19 +79,27 @@ public class Dictionary extends AppCompatActivity {
         return true;
     }
 
+    /**
+     * Create toolbar functionality
+     * @param item
+     * @return
+     */
     public boolean onOptionsItemSelected(MenuItem item) {
 
         switch(item.getItemId())
         {
             //what to do when the menu item is selected:
             case R.id.feed:
-
+                Intent feed=new Intent(Dictionary.this,NewsFeed.class);
+                startActivity(feed);
                 return true;
             case R.id.flight:
-
+                Intent flight=new Intent(Dictionary.this,FlightMainActivity.class);
+                startActivity(flight);
                 return true;
             case R.id.news:
-
+                Intent news= new Intent(Dictionary.this,activity_newyork.class);
+                startActivity(news);
                 return true;
 
             case R.id.action_settings:
@@ -91,7 +113,9 @@ public class Dictionary extends AppCompatActivity {
     }
 
 
-
+    /**
+     * This is the building for the alert pop up window
+     */
 
     public void alertExample() {
         View middle = getLayoutInflater().inflate(R.layout.activity_dictionary_popup, null);

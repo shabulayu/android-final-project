@@ -4,7 +4,8 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Button;
-import android.widget.Toast;
+
+import com.example.finalproject.Dictionary.Dictionary;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         searchBt = findViewById(R.id.searchBt);
 
         dicBt.setOnClickListener(a -> {
-            Intent dic=new Intent(MainActivity.this,Dictionary.class);
+            Intent dic=new Intent(MainActivity.this, Dictionary.class);
             startActivity(dic);
         });
     }
