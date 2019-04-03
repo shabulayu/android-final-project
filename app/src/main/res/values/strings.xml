@@ -36,8 +36,7 @@
         This app also provides keyword search for article title. If users like an article, they can add the article to the local database
         using the save button.</string>
 
-    <string name="help">Help</string>
-    <string name="save">save</string>
+   
     <string name="newYork">New York Times News</string>
     <string name="savedNews">Saved News</string>
     <string name="savedN">SAVE</string>
