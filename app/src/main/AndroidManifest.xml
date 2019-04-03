@@ -16,6 +16,7 @@
         <activity android:name=".NewsFeed.SavedArticle" />
         <activity android:name=".NewsFeed.NewsArticle" />
         <activity android:name=".NewsFeed.NewsFeed" />
+        <activity android:name=".Flight.FlightDetailActivity" />
         <activity android:name=".Flight.FlightMainActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

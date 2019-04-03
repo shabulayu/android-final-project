@@ -9,4 +9,9 @@
         "2. Click the selected flight for detailed information.\n"
         "3. Save the flight for updating and delete the saved flight from the list.\n"
     </string>
+    <string name="flight_status_tracer">Flight Status Tracer</string>
+    <string name="search">search</string>
+    <string name="save">SAVE</string>
+    <string name="delete">DELETE</string>
+    <string name="help">help</string>
 </resources>

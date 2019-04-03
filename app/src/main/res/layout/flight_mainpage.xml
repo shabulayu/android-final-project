@@ -12,20 +12,29 @@
 
     </android.support.v7.widget.Toolbar>
 
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:id="@+id/fetchFlightDataProgressBar"/>
+
+
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/my_toolbar"
-        android:layout_above="@+id/AirportNo"
-        android:text="Flight Status Tracer"
+        android:text="@string/flight_status_tracer"
         android:textColor="@color/colorPrimaryDark"
         android:textAlignment="center"
         android:textSize="32dp"
         android:textStyle="bold"/>
+
     <ListView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" android:id="@+id/fightListView"
+        android:layout_height="wrap_content"
+        android:id="@+id/fightListView"
         android:layout_alignParentTop="false" android:layout_alignParentStart="false"
         android:layout_alignParentEnd="false"
         android:layout_above="@id/AirportNo"
@@ -46,7 +55,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="search"
+        android:text="@string/search"
         android:id="@+id/search"
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/AirportNo"
