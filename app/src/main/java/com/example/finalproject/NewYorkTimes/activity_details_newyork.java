@@ -85,24 +85,37 @@ public class activity_details_newyork extends Fragment {
 
         // add a click listener for save button:
         save.setOnClickListener( clk -> {
-            //get the information for each column when you click the save button
-            String title = titleView.getText().toString();
-            String author = authorView.getText().toString();
-            String link = linkView.getText().toString();
-            String description = desView.getText().toString();
 
-            //add to the database and get the new ID
-            ContentValues newRowValues = new ContentValues();
-            //put string message in the MESSAGE column:
-            newRowValues.put(MyDataOpenHelper.COL_TITLE, title);
-            newRowValues.put(MyDataOpenHelper.COL_AUTHOR, author);
-            newRowValues.put(MyDataOpenHelper.COL_LINK, link);
-            newRowValues.put(MyDataOpenHelper.COL_DESCRIPTION, description);
+            //check the artice is saved or not
+            boolean idSaved = false;
+            for(int i = 0; i < saved_list_newyork.tNewsSavd.size(); i++){
+                if(id == saved_list_newyork.tNewsSavd.get(i).getId()){
+                    idSaved = true;
+                    break;
+                }
+            }
+            if(!idSaved) {
+                //get the information for each column when you click the save button
+                String title = titleView.getText().toString();
+                String author = authorView.getText().toString();
+                String link = linkView.getText().toString();
+                String description = desView.getText().toString();
 
-            //insert in the database:
-            long newId = db.insert(MyDataOpenHelper.TABLE_NAME, null, newRowValues);
+                //add to the database and get the new ID
+                ContentValues newRowValues = new ContentValues();
+                //put string message in the MESSAGE column:
+                newRowValues.put(MyDataOpenHelper.COL_TITLE, title);
+                newRowValues.put(MyDataOpenHelper.COL_AUTHOR, author);
+                newRowValues.put(MyDataOpenHelper.COL_LINK, link);
+                newRowValues.put(MyDataOpenHelper.COL_DESCRIPTION, description);
 
-            Toast.makeText(getActivity(), getResources().getString(R.string.toastSaved), Toast.LENGTH_LONG).show();
+                //insert in the database:
+                long newId = db.insert(MyDataOpenHelper.TABLE_NAME, null, newRowValues);
+
+                Toast.makeText(getActivity(), getResources().getString(R.string.toastSaved), Toast.LENGTH_LONG).show();
+            }else{
+                Toast.makeText(getActivity(), getResources().getString(R.string.alreadySaved), Toast.LENGTH_LONG).show();
+            }
 
         });
 
@@ -121,11 +134,12 @@ public class activity_details_newyork extends Fragment {
             }
 
             if(idFound){
+
                 Snackbar sb = Snackbar.make(tBar, getResources().getString(R.string.comfirmD), Snackbar.LENGTH_LONG)
                         .setAction(getResources().getString(R.string.yes), e -> {
-                            int arrayId = saved_list_newyork.tNewsSavd.indexOf(new TimesNews());
-                            Log.i("Delete this article:" , " id="+id);
-                            saved_list_newyork.tNewsSavd.remove(id);
+                            Log.i("Delete this article:" , " id="+dataFromActivity.getInt("arrayID"));
+
+                            saved_list_newyork.tNewsSavd.remove(dataFromActivity.getInt("arrayID"));
 
                             db.delete(dbOpener.TABLE_NAME, dbOpener.COL_ID + "=?", new String[] {Long.toString(id)});
                             Log.i("Delete database:" , " id="+id);

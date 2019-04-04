@@ -50,5 +50,6 @@
     <string name="dic_type">输入单词 </string>
     <string name="action_settings">帮助</string>
     <string name="notNeed">这篇文章未保存，无需删除。</string>
+    <string name="alreadySaved">已被保存</string>string>
 
 </resources>

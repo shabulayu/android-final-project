@@ -52,6 +52,7 @@
     <string name="toastSaved">Saved</string>
     <string name="labelN">Your Label: </string>
     <string name="notNeed">This article is not been saved, do not need to delete</string>
+    <string name="alreadySaved">Already Saved</string>string>
 
 
 </resources>

@@ -62,6 +62,7 @@ public class saved_list_newyork extends AppCompatActivity {
 
             //add the new Message to the array list:
             tNewsSavd.add(new TimesNews(id, title, author, link, description));
+
         }
         //using an adapter object and send it to the listVIew
         savedList.setAdapter(adt);
@@ -70,6 +71,7 @@ public class saved_list_newyork extends AppCompatActivity {
         savedList.setOnItemClickListener( (list, item, position, id) -> {
 
             Bundle dataToPass = new Bundle();
+            dataToPass.putInt("arrayID", tNewsSavd.indexOf(tNewsSavd.get(position)));
             dataToPass.putLong("ID", tNewsSavd.get(position).getId());
             dataToPass.putString(activity_newyork.ITEM_TITLE, tNewsSavd.get(position).getTitle());
             dataToPass.putString(activity_newyork.ITEM_AUTHOR, tNewsSavd.get(position).getAuthor());
