@@ -2,13 +2,13 @@ package com.example.finalproject.Flight;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -20,6 +20,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -49,7 +50,9 @@ public class FlightMainActivity extends AppCompatActivity {
     private List<Flight> flights;
     private FlightAdapter flightAdapter;
     private ProgressBar progressBar;
-    private Toolbar tBar;
+    private EditText editText;
+    private SharedPreferences sp;
+
 
 
 
@@ -68,8 +71,6 @@ public class FlightMainActivity extends AppCompatActivity {
         flightAdapter = new FlightAdapter(this, 0);
         flights = new ArrayList<>();
 
-        tBar = (Toolbar)findViewById(R.id.my_toolbar);
-        setSupportActionBar(tBar);
 
 
 
@@ -89,13 +90,32 @@ public class FlightMainActivity extends AppCompatActivity {
             Intent intent = new Intent(this, FlightDetailActivity.class);
             Flight flight = flightAdapter.getItem(position);
             intent.putExtra("location", "Latitude: " + flight.getLatitude() + "\nLongitude: " + flight.getLongitude());
-            intent.putExtra("speed", flight.getHorizontal());
+            intent.putExtra("speed", flight.getSpeed());
             intent.putExtra("altitude", flight.getAltitude());
             intent.putExtra("status", flight.getStatus());
+            intent.putExtra("iataNumber", flight.getIataNumber());
             startActivity(intent);
         });
 
+        editText = getWindow().findViewById(R.id.AirportNo);
+        sp = getSharedPreferences("Email", Context.MODE_PRIVATE);
+        String savedString = sp.getString("ReserveName", "");
 
+        editText.setText(savedString);
+
+
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        SharedPreferences.Editor editor = sp.edit();
+
+        String whatWasTyped = editText.getText().toString();
+        editor.putString("ReserveName", whatWasTyped);
+
+        editor.commit();
     }
 
     /**
@@ -127,10 +147,7 @@ public class FlightMainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.item2:
-                 Snackbar sb = Snackbar.make(tBar, "Go to another activity?", Snackbar.LENGTH_LONG)
-                    .setAction("Yes!", e -> startActivity(new Intent(FlightMainActivity.this, NewsFeed.class)));
-
-                    sb.show();
+                startActivity(new Intent(FlightMainActivity.this, NewsFeed.class));
 
                 return true;
 
