@@ -9,11 +9,16 @@
         android:id="@+id/author"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:text="Siyuan Yu"/>
+        android:text="@string/feed_author"/>
 
-    <EditText
-        android:id="@+id/diaEdit"
+    <TextView
+        android:id="@+id/version"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:hint="Type here"/>
+        android:text="@string/feed_version"/>
+    <TextView
+        android:id="@+id/instruction"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/feed_instruction"/>
 </LinearLayout>

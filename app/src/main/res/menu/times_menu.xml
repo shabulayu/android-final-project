@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/dictionary"
+        android:title="Merriam Webster Dictionary"
+        android:icon="@drawable/dictionary"
+        android:orderInCategory="100"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/news"
+        android:title="News Feed"
+        android:icon="@drawable/news"
+        android:orderInCategory="101"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/airport"
+        android:title="Flight Status tracker"
+        android:icon="@drawable/airport"
+        android:orderInCategory="102"
+        app:showAsAction="always"/>
+
+    <item android:id="@+id/help"
+        android:title="@string/help"
+        android:orderInCategory="103"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/save_menu"
+        android:title="@string/savedNews"
+        android:orderInCategory="104"
+        app:showAsAction="never"/>
+
+
+</menu>
