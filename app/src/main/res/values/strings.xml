@@ -15,7 +15,6 @@
     <string name="save">SAVE</string>
     <string name="delete">DELETE</string>
     <string name="help">help</string>
-=======
     <string name="Dictionary">Merriam Webster Dictionary</string>
     <string name="News">News Feed</string>
     <string name="Flight">Flight Status tracker</string>
@@ -27,9 +26,6 @@
     <string name="feed_instruction">Users can read NEWS stories on the NEWS CRAWLER website through this app.
         This app also provides keyword search for article title. If users like an article, they can add the article to the local database
         using the save button.</string>
-
-    <string name="help">Help</string>
-    <string name="save">save</string>
     <string name="newYork">New York Times News</string>
     <string name="savedNews">Saved News</string>
     <string name="savedN">SAVE</string>
