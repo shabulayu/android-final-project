@@ -8,16 +8,16 @@ package com.example.finalproject.Flight.model;
  */
 public class Flight {
 
-    private double location;
-    private double altitude;
-    private double speed;
+    private String location;
+    private String altitude;
+    private String speed;
     private String status;
     private String iataNumber;
 
-    private double latitude;
-    private double longitude;
+    private String latitude;
+    private String longitude;
 
-    public Flight(double latitude, double longitude, double altitude, double speed, String status, String iataNumber) {
+    public Flight(String latitude, String longitude, String altitude, String speed, String status, String iataNumber) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.altitude = altitude;
@@ -26,7 +26,7 @@ public class Flight {
         this.iataNumber = iataNumber;
     }
 
-    public Flight(double location, double altitude, double speed, String status, String iataNumber) {
+    public Flight(String location, String altitude, String speed, String status, String iataNumber) {
         this.location = location;
         this.altitude = altitude;
         this.speed = speed;
@@ -34,27 +34,27 @@ public class Flight {
         this.iataNumber = iataNumber;
     }
 
-    public double getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(double location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
-    public double getAltitude() {
+    public String getAltitude() {
         return altitude;
     }
 
-    public void setAltitude(double altitude) {
+    public void setAltitude(String altitude) {
         this.altitude = altitude;
     }
 
-    public double getSpeed() {
+    public String getSpeed() {
         return speed;
     }
 
-    public void setSpeed(double speed) {
+    public void setSpeed(String speed) {
         this.speed = speed;
     }
 
@@ -74,19 +74,19 @@ public class Flight {
         this.iataNumber = iataNumber;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 }

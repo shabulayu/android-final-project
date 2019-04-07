@@ -21,6 +21,7 @@
 
         <activity android:name=".Flight.FlightDetailActivity" />
         <activity android:name=".Flight.FlightMainActivity" />
+        <activity android:name=".Flight.FlightSavedActivity" />
 
         <activity android:name=".NewYorkTimes.activity_newyork" />
         <activity android:name=".NewYorkTimes.Empty_newyork" />

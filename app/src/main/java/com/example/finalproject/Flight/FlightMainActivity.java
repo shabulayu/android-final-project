@@ -260,12 +260,12 @@ public class FlightMainActivity extends AppCompatActivity {
             JsonArray jsonArray = new JsonParser().parse(json.toString()).getAsJsonArray();
             if (jsonArray.size() != 0) {
                 for (JsonElement flightJsonElement : jsonArray) {
-                    double latitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("latitude").getAsDouble();
-                    double longitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("longitude").getAsDouble();
+                    String latitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("latitude").getAsString();
+                    String longitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("longitude").getAsString();
                     publishProgress(0);
-                    double altitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("altitude").getAsDouble();
+                    String altitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("altitude").getAsString();
                     publishProgress(25);
-                    double horizontal = flightJsonElement.getAsJsonObject().get("speed").getAsJsonObject().get("horizontal").getAsDouble();
+                    String horizontal = flightJsonElement.getAsJsonObject().get("speed").getAsJsonObject().get("horizontal").getAsString();
                     publishProgress(50);
                     String status = flightJsonElement.getAsJsonObject().get("status").getAsString();
                     publishProgress(75);
@@ -281,7 +281,7 @@ public class FlightMainActivity extends AppCompatActivity {
 
         @Override
         protected void onProgressUpdate(Integer... values) {
-            progressBar = (ProgressBar)findViewById(R.id.fetchFlightDataProgressBar);
+            progressBar = findViewById(R.id.fetchFlightDataProgressBar);
             progressBar.setVisibility(View.VISIBLE);
 
             //super.onProgressUpdate(values);

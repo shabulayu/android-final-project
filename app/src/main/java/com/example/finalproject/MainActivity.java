@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     Button newsBt;
     Button flightBt;
     Button searchBt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,20 +33,22 @@ public class MainActivity extends AppCompatActivity {
         flightBt = findViewById(R.id.flightBt);
         searchBt = findViewById(R.id.searchBt);
         Intent news = new Intent(this, NewsFeed.class);
-        newsBt.setOnClickListener(a->{
+        newsBt.setOnClickListener(a -> {
             startActivity(news);
         });
 
 
-        flightBt.setOnClickListener(b->{
-            Intent flight = new Intent(this, FlightMainActivity.class);
-            startActivity(flight);
+        flightBt.setOnClickListener(b -> {
+                    Intent flight = new Intent(this, FlightMainActivity.class);
+                    startActivity(flight);
 
-        //click the New York news button, then go the New York news search page
-        Intent newYork = new Intent(this, activity_newyork.class);
-        searchBt .setOnClickListener(a->{
-            startActivity(newYork);
+                    //click the New York news button, then go the New York news search page
+                    Intent newYork = new Intent(this, activity_newyork.class);
+                    searchBt.setOnClickListener(a -> {
+                        startActivity(newYork);
 
-        });
+                    });
+                }
+        );
     }
 }

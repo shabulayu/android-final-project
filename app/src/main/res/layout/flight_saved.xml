@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/savedFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -8,23 +9,23 @@
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:textSize="40dp"
+        android:text="Saved Flight"
         android:textAlignment="center"
-        android:text="Saved Flight" />
+        android:textSize="40dp" />
 
     <ListView
+        android:id="@+id/savedFlight"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/savedFlight"
-        android:layout_above="@+id/deleteButton"
+        android:layout_above="@+id/backButton"
         android:layout_below="@+id/title"></ListView>
 
     <Button
+        android:id="@+id/backButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DELETE"
-        android:id="@+id/deleteButton"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"/>
+        android:text="Go Back" />
 
 </RelativeLayout>
