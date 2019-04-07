@@ -54,15 +54,14 @@ public class FlightMainActivity extends AppCompatActivity {
     private SharedPreferences sp;
 
 
-
-
     /**
      * Override the onCreate() to create the activity, including initialize properties and
      * turn over to a new page to retrieve information
+     *
      * @param savedInstanceState
      */
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.flight_mainpage);
         Toolbar toolbar = findViewById(R.id.my_toolbar);
@@ -70,8 +69,6 @@ public class FlightMainActivity extends AppCompatActivity {
 
         flightAdapter = new FlightAdapter(this, 0);
         flights = new ArrayList<>();
-
-
 
 
         Button buttonSearch = findViewById(R.id.search);
@@ -121,6 +118,7 @@ public class FlightMainActivity extends AppCompatActivity {
     /**
      * specify the options menu for an activity
      * inflate your menu resource into the Menu provided in the callback
+     *
      * @param menu
      */
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -135,6 +133,7 @@ public class FlightMainActivity extends AppCompatActivity {
     /**
      * pass in the menu item objected that was clicked
      * inflate your menu resource into the Menu provided in the callback
+     *
      * @param item
      * @return
      */
@@ -186,6 +185,7 @@ public class FlightMainActivity extends AppCompatActivity {
 
         /**
          * returns the number of items
+         *
          * @return
          */
         @Override
@@ -195,6 +195,7 @@ public class FlightMainActivity extends AppCompatActivity {
 
         /**
          * returns an item from a specific position
+         *
          * @param position
          * @return
          */
@@ -211,6 +212,7 @@ public class FlightMainActivity extends AppCompatActivity {
 
         /**
          * return a story title to be shown at row position
+         *
          * @param position
          * @param old
          * @param parent
@@ -238,14 +240,13 @@ public class FlightMainActivity extends AppCompatActivity {
     private class FlightDataQuery extends AsyncTask<String, Integer, List<Flight>> {
 
 
-
         @RequiresApi(api = Build.VERSION_CODES.N)
         @Override
         protected List<Flight> doInBackground(String... strings) {
             URL url = null;
             StringBuilder json = new StringBuilder();
             try {
-                url = new URL("http://torunski.ca/flights.json");
+                url = new URL("http://aviation-edge.com/v2/public/flights?key=1660a6-59a3ce&arrIata=" + editText.getText());
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String inputLine;
@@ -253,27 +254,27 @@ public class FlightMainActivity extends AppCompatActivity {
                     json.append(inputLine);
                 }
                 br.close();
+                flights = new ArrayList<>();
+                JsonArray jsonArray = new JsonParser().parse(json.toString()).getAsJsonArray();
+                if (jsonArray.size() != 0) {
+                    for (JsonElement flightJsonElement : jsonArray) {
+                        String latitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("latitude").getAsString();
+                        String longitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("longitude").getAsString();
+                        publishProgress(0);
+                        String altitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("altitude").getAsString();
+                        publishProgress(25);
+                        String horizontal = flightJsonElement.getAsJsonObject().get("speed").getAsJsonObject().get("horizontal").getAsString();
+                        publishProgress(50);
+                        String status = flightJsonElement.getAsJsonObject().get("status").getAsString();
+                        publishProgress(75);
+                        String iataNumber = flightJsonElement.getAsJsonObject().get("flight").getAsJsonObject().get("iataNumber").getAsString();
+                        publishProgress(100);
+                        Flight flight = new Flight(latitude, longitude, altitude, horizontal, status, iataNumber);
+                        flights.add(flight);
+                    }
+                }
             } catch (Exception e) {
                 e.printStackTrace();
-            }
-            flights = new ArrayList<>();
-            JsonArray jsonArray = new JsonParser().parse(json.toString()).getAsJsonArray();
-            if (jsonArray.size() != 0) {
-                for (JsonElement flightJsonElement : jsonArray) {
-                    String latitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("latitude").getAsString();
-                    String longitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("longitude").getAsString();
-                    publishProgress(0);
-                    String altitude = flightJsonElement.getAsJsonObject().get("geography").getAsJsonObject().get("altitude").getAsString();
-                    publishProgress(25);
-                    String horizontal = flightJsonElement.getAsJsonObject().get("speed").getAsJsonObject().get("horizontal").getAsString();
-                    publishProgress(50);
-                    String status = flightJsonElement.getAsJsonObject().get("status").getAsString();
-                    publishProgress(75);
-                    String iataNumber = flightJsonElement.getAsJsonObject().get("flight").getAsJsonObject().get("iataNumber").getAsString();
-                    publishProgress(100);
-                    Flight flight = new Flight(latitude, longitude, altitude, horizontal, status, iataNumber);
-                    flights.add(flight);
-                }
             }
             return null;
         }
@@ -291,14 +292,16 @@ public class FlightMainActivity extends AppCompatActivity {
 
         /**
          * Override onPostExecute class to handle when web query task is finished
+         *
          * @param s
          */
         @Override
         protected void onPostExecute(List<Flight> s) {
             /*super.onPostExecute(s);
             flightAdapter.notifyDataSetChanged();*/
-            progressBar = (ProgressBar)findViewById(R.id.fetchFlightDataProgressBar);
+            progressBar = findViewById(R.id.fetchFlightDataProgressBar);
             progressBar.setVisibility(View.INVISIBLE);
+            flightAdapter.notifyDataSetChanged();
         }
 
     }
