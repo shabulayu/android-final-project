@@ -35,7 +35,7 @@
         android:layout_below="@+id/description"
         android:layout_alignParentEnd="true"
         android:text="DELETE"
-        android:id="@+id/deleteButton"/>
+        android:id="@+id/backButton"/>
 
 
 </RelativeLayout>
