@@ -159,6 +159,9 @@ public class activity_details_newyork extends Fragment {
         return result;
     }
 
+    /**
+     * save the user input and to show next time when launch it
+     */
     @Override
     public void onPause() {
         super.onPause();

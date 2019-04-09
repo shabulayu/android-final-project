@@ -5,6 +5,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
+/**
+ * this class extends SQLiteOpenHelper to create the database
+ */
 public class MyDataOpenHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME = "MyDatabaseFile";
     public static final int VERSION_NUM = 1;
@@ -16,11 +19,18 @@ public class MyDataOpenHelper extends SQLiteOpenHelper {
     public static final String COL_DESCRIPTION = "DESCRIPTION";
 
 
-    //constructor
+    /**
+     * constructor
+     * @param ctx
+     */
     public MyDataOpenHelper(Activity ctx) {
         super(ctx, DATABASE_NAME, null, VERSION_NUM);
     }
 
+    /**
+     * create the database
+     * @param db
+     */
     @Override
     public void onCreate(SQLiteDatabase db) {
         //Make sure you put spaces between SQL statements and Java strings:
@@ -29,6 +39,12 @@ public class MyDataOpenHelper extends SQLiteOpenHelper {
                 + COL_TITLE  + " TEXT," + COL_AUTHOR  + " TEXT," + COL_LINK  + " TEXT," + COL_DESCRIPTION  + " TEXT)");
     }
 
+    /**
+     * upgrade the database
+     * @param db
+     * @param oldVersion
+     * @param newVersion
+     */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         Log.i("Database upgrade", "Old version:" + oldVersion + " newVersion:"+newVersion);

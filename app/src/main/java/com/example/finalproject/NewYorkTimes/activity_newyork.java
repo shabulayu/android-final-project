@@ -275,7 +275,6 @@ public class activity_newyork extends AppCompatActivity {
     /**
      * a inner class extends the AsyncTask, to get the data from the HTTP page
      */
-
     private class NewsQuery extends AsyncTask<String, Integer, String> {
         //variables
         private String title;

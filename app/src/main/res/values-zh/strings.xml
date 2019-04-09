@@ -51,5 +51,6 @@
     <string name="action_settings">帮助</string>
     <string name="notNeed">这篇文章未保存，无需删除。</string>
     <string name="alreadySaved">已被保存</string>string>
+    <string name="saveNewyork">纽约时报已保文章存列表</string>
 
 </resources>
