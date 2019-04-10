@@ -37,6 +37,7 @@
         using the save button.</string>
 
 
+
     <string name="newYork">New York Times News</string>
     <string name="savedNews">Saved News</string>
     <string name="savedN">SAVE</string>
@@ -51,11 +52,6 @@
     <string name="label">You can enter your word to label it</string>
     <string name="toastSaved">Saved</string>
     <string name="labelN">Your Label: </string>
-
-
-
-
-
 
 
 </resources>
