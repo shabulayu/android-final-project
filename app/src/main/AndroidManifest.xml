@@ -18,7 +18,11 @@
         <activity android:name=".NewsFeed.NewsSavedArticle" />
         <activity android:name=".NewsFeed.NewsArticle" />
         <activity android:name=".NewsFeed.NewsFeed" />
+        <activity android:name=".NewsFeed.NewsEmpty"/>
+        <activity android:name=".NewsFeed.NewsSavedFragment" />
 
+        <activity android:name=".Dictionary.Dictionary" />
+        <activity android:name=".Dictionary.Dictionary_definition" />
         <activity android:name=".Flight.FlightDetailActivity" />
         <activity android:name=".Flight.FlightMainActivity" />
         <activity android:name=".Flight.FlightSavedActivity" />
