@@ -10,6 +10,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,6 +31,7 @@ public class FlightDetailActivity extends AppCompatActivity {
     private FlightDatabaseHelper dbOpener;
     private Toolbar tBar;
     private boolean isSaved = false;
+    private LinearLayout linearLayout;
 
     /**
      * Override the onCreate() to create the activity, including initialize properties and
@@ -48,6 +50,7 @@ public class FlightDetailActivity extends AppCompatActivity {
         TextView speedTextView = findViewById(R.id.speedTextView);
         TextView altitudeTextView = findViewById(R.id.altitudeTextView);
         TextView statusTextView = findViewById(R.id.statusTextView);
+        linearLayout = findViewById(R.id.fightDetailLayout);
         saveButton = findViewById(R.id.saveButton);
         deleteButton = findViewById(R.id.backButton);
         deleteButton.setEnabled(false);
@@ -118,6 +121,10 @@ public class FlightDetailActivity extends AppCompatActivity {
                     }).show();
             deleteButton.setEnabled(false);
             saveButton.setEnabled(true);
+        });
+
+        linearLayout.setOnClickListener(v -> {
+            startActivity(new Intent(FlightDetailActivity.this, FlightSavedActivity.class));
         });
 
     }
