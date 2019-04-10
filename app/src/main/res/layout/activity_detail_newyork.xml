@@ -56,9 +56,9 @@
         android:layout_below="@+id/label"
         android:layout_alignParentEnd="true"
         android:layout_alignParentLeft="true"
-        android:text="@string/backN"
+        android:text="@string/deleteN"
         android:background="@color/design_default_color_primary"
-        android:id="@+id/snackTest"/>
+        android:id="@+id/deleteB"/>
 
 
 </RelativeLayout>

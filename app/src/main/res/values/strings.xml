@@ -41,17 +41,22 @@
     <string name="newYork">New York Times News</string>
     <string name="savedNews">Saved News</string>
     <string name="savedN">SAVE</string>
-    <string name="backN">BACK</string>
+    <string name="deleteN">DELETE</string>
     <string name="wang">Author: Yongli Wang</string>
     <string name="verN">Version Number: 1.0</string>
     <string name="desN">Instruction: This page is used to search the articles from the New York Times websites.
         The users can save and delete the article.
         When the user clicks one article, it will shows the details of the article.</string>
-    <string name="backSnack">Go Back?</string>
+    <string name="comfirmD">Are you sure to delete?</string>
     <string name="yes">Yes</string>
     <string name="label">You can enter your word to label it</string>
     <string name="toastSaved">Saved</string>
     <string name="labelN">Your Label: </string>
+
+    <string name="notNeed">This article is not been saved, do not need to delete</string>
+    <string name="alreadySaved">Already Saved</string>string>
+    <string name="saveNewyork">New York Times News Saved List</string>
+
 
 
 </resources>
