@@ -40,6 +40,8 @@
     <string name="label">您可以输入您得标签</string>
     <string name="toastSaved">已保存</string>
     <string name="labelN">您的标签： </string>
+    <string name="save">保存</string>
+    <string name="help">帮助</string>
 
 
     <string name="dic_search">在梅里亚姆-韦伯斯特字典里搜索</string>

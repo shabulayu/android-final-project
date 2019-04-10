@@ -32,6 +32,7 @@ public class saved_list_newyork extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved_list_newyork);
 
+        tNewsSavd.clear();
         //initialize the inner class
         adt = new MyOwnAdapter();
         //Get the fields from the screen:

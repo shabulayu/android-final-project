@@ -25,7 +25,9 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.example.finalproject.Dictionary.Dictionary;
 import com.example.finalproject.Flight.model.Flight;
+import com.example.finalproject.NewYorkTimes.activity_newyork;
 import com.example.finalproject.NewsFeed.NewsFeed;
 import com.example.finalproject.R;
 import com.google.gson.JsonArray;
@@ -142,7 +144,7 @@ public class FlightMainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             //what to do when the menu item is selected:
             case R.id.item1:
-                //startActivity(new Intent(FlightMainActivity.this, Merriam _Webster_DictionaryMainActivity.class));
+                startActivity(new Intent(FlightMainActivity.this, Dictionary.class));
                 return true;
 
             case R.id.item2:
@@ -152,7 +154,7 @@ public class FlightMainActivity extends AppCompatActivity {
 
             case R.id.item3:
 
-                //startActivity(new Intent(FlightMainActivity.this, activity_newyork.class));
+                startActivity(new Intent(FlightMainActivity.this, activity_newyork.class));
                 return true;
 
             case R.id.item4:
