@@ -1,6 +1,14 @@
 <resources>
     <string name="app_name">final project</string>
 
+    <string name="dic_search">Search in Merriam Webster Dictionary</string>
+    <string name="dic_Message">Welcome to use Merriam Webster Dictionary</string>
+    <string name="dic_definition">DEFINITION </string>
+    <string name="dic_type">Enter a word to search. </string>
+
+    <string name="action_settings">Help</string>
+
+
     <string name="flight_positive">OK</string>
     <string name="flight_instruction_title">Flight Help Instruction</string>
     <string name="flight_help">"Author: Danyao Wang \n" +
@@ -15,6 +23,7 @@
     <string name="save">SAVE</string>
     <string name="delete">DELETE</string>
     <string name="help">help</string>
+
     <string name="Dictionary">Merriam Webster Dictionary</string>
     <string name="News">News Feed</string>
     <string name="Flight">Flight Status tracker</string>
@@ -26,22 +35,26 @@
     <string name="feed_instruction">Users can read NEWS stories on the NEWS CRAWLER website through this app.
         This app also provides keyword search for article title. If users like an article, they can add the article to the local database
         using the save button.</string>
+
     <string name="newYork">New York Times News</string>
     <string name="savedNews">Saved News</string>
     <string name="savedN">SAVE</string>
-    <string name="backN">BACK</string>
+    <string name="deleteN">DELETE</string>
     <string name="wang">Author: Yongli Wang</string>
     <string name="verN">Version Number: 1.0</string>
     <string name="desN">Instruction: This page is used to search the articles from the New York Times websites.
         The users can save and delete the article.
         When the user clicks one article, it will shows the details of the article.</string>
-    <string name="backSnack">Go Back?</string>
+    <string name="comfirmD">Are you sure to delete?</string>
     <string name="yes">Yes</string>
     <string name="label">You can enter your word to label it</string>
     <string name="toastSaved">Saved</string>
     <string name="labelN">Your Label: </string>
 
 
+    <string name="notNeed">This article is not been saved, do not need to delete</string>
+    <string name="alreadySaved">Already Saved</string>string>
+    <string name="saveNewyork">New York Times News Saved List</string>
 
 
 

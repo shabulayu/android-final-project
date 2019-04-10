@@ -6,13 +6,17 @@
     android:layout_height="match_parent"
     android:layout_gravity="center_horizontal"
     android:columnCount="2"
-    android:rowCount="2">
+    android:rowCount="2"
+    android:orientation="horizontal">
 
        <Button
            android:id="@+id/dicBt"
            android:background="@drawable/bt_bg"
            android:layout_height="wrap_content"
+
+
            android:layout_width="0dp"
+
            android:layout_columnWeight="1"
            android:layout_rowWeight="1"
            android:layout_column="0"
@@ -24,11 +28,13 @@
 
        </Button>
 
+
         <Button
             android:id="@+id/newsBt"
             android:background="@drawable/bt_bg"
             android:layout_height="wrap_content"
             android:layout_width="0dp"
+
             android:layout_columnWeight="1"
             android:layout_rowWeight="1"
             android:layout_column="1"
@@ -38,6 +44,7 @@
             android:textSize="15dp"
             android:text="@string/News">
         </Button>
+
 
         <Button
             android:id="@+id/flightBt"
@@ -53,9 +60,11 @@
             android:textSize="15dp"
             android:text="@string/Flight">
         </Button>
+
         <Button
             android:id="@+id/searchBt"
             android:background="@drawable/bt_bg"
+
             android:layout_height="wrap_content"
             android:layout_width="0dp"
             android:layout_columnWeight="1"
@@ -67,6 +76,7 @@
             android:textSize="15dp"
             android:text="@string/Article">
         </Button>
+
 
 
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/feed"
+        android:title="@string/News"
+        android:icon="@drawable/feed_dict"
+        android:orderInCategory="1"
+        app:showAsAction="always"/>
+    <item android:id="@+id/flight"
+        android:title="@string/Flight"
+        android:icon="@drawable/flight_dict"
+        android:orderInCategory="2"
+        app:showAsAction="always"/>
+    <item android:id="@+id/news"
+        android:title="@string/Article"
+        android:icon="@drawable/news_dict"
+        android:orderInCategory="3"
+        app:showAsAction="always"/>
+    <item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        app:showAsAction="never"/>
+</menu>

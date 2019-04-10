@@ -24,6 +24,8 @@ import android.widget.SearchView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.finalproject.Dictionary.Dictionary;
+import com.example.finalproject.Flight.FlightMainActivity;
 import com.example.finalproject.NewsFeed.NewsFeed;
 import com.example.finalproject.R;
 
@@ -190,12 +192,12 @@ public class activity_newyork extends AppCompatActivity {
                 break;
             case R.id.airport:
                 //go to the Flight Status tracker page:
-                Intent air = new Intent(this, NewsFeed.class);
+                Intent air = new Intent(this, FlightMainActivity.class);
                 startActivity(air);
                 break;
             case R.id.dictionary:
                 //go to the Merriam Webster Dictionary page:
-                Intent dic = new Intent(this, NewsFeed.class);
+                Intent dic = new Intent(this, Dictionary.class);
                 startActivity(dic);
                 break;
             case R.id.help:
@@ -273,7 +275,6 @@ public class activity_newyork extends AppCompatActivity {
     /**
      * a inner class extends the AsyncTask, to get the data from the HTTP page
      */
-
     private class NewsQuery extends AsyncTask<String, Integer, String> {
         //variables
         private String title;
