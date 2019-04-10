@@ -26,8 +26,6 @@
     <string name="feed_version">版本1.0</string>
     <string name="feed_instruction">用户可以通过这个应用阅读NEWS CRAWLER网站上的新闻故事，本应用还提供文章标题关键字
         搜索，如果用户喜欢某篇文章，可通过存储按钮添加该文章到本地数据库。</string>
-    <string name="help">帮助</string>
-    <string name="save">保存</string>
     <string name="newYork">纽约时报新闻</string>
     <string name="savedNews">已保存文章</string>
     <string name="savedN">保存</string>

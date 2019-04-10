@@ -1,11 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/savedFragment"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="Saved Flight"
+        android:textAlignment="center"
+        android:textSize="40dp" />
 
     <ListView
+        android:id="@+id/savedFlight"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/savedFlight"></ListView>
+        android:layout_above="@+id/backButton"
+        android:layout_below="@+id/title"></ListView>
 
-</LinearLayout>
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:text="Go Back" />
+
+</RelativeLayout>

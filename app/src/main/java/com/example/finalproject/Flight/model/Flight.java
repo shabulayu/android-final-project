@@ -8,52 +8,54 @@ package com.example.finalproject.Flight.model;
  */
 public class Flight {
 
-    private double latitude;
-    private double longitude;
-    private double altitude;
-    private double horizontal;
+    private String location;
+    private String altitude;
+    private String speed;
     private String status;
     private String iataNumber;
 
-    public Flight(double latitude, double longitude, double altitude, double horizontal, String status, String iataNumber) {
+    private String latitude;
+    private String longitude;
+
+    public Flight(String latitude, String longitude, String altitude, String speed, String status, String iataNumber) {
         this.latitude = latitude;
         this.longitude = longitude;
         this.altitude = altitude;
-        this.horizontal = horizontal;
+        this.speed = speed;
         this.status = status;
         this.iataNumber = iataNumber;
     }
 
-    public double getLatitude() {
-        return latitude;
+    public Flight(String location, String altitude, String speed, String status, String iataNumber) {
+        this.location = location;
+        this.altitude = altitude;
+        this.speed = speed;
+        this.status = status;
+        this.iataNumber = iataNumber;
     }
 
-    public void setLatitude(double latitude) {
-        this.latitude = latitude;
+    public String getLocation() {
+        return location;
     }
 
-    public double getLongitude() {
-        return longitude;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public void setLongitude(double longitude) {
-        this.longitude = longitude;
-    }
-
-    public double getAltitude() {
+    public String getAltitude() {
         return altitude;
     }
 
-    public void setAltitude(double altitude) {
+    public void setAltitude(String altitude) {
         this.altitude = altitude;
     }
 
-    public double getHorizontal() {
-        return horizontal;
+    public String getSpeed() {
+        return speed;
     }
 
-    public void setHorizontal(double horizontal) {
-        this.horizontal = horizontal;
+    public void setSpeed(String speed) {
+        this.speed = speed;
     }
 
     public String getStatus() {
@@ -70,5 +72,21 @@ public class Flight {
 
     public void setIataNumber(String iataNumber) {
         this.iataNumber = iataNumber;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
     }
 }

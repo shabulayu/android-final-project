@@ -36,8 +36,6 @@
         This app also provides keyword search for article title. If users like an article, they can add the article to the local database
         using the save button.</string>
 
-
-
     <string name="newYork">New York Times News</string>
     <string name="savedNews">Saved News</string>
     <string name="savedN">SAVE</string>
@@ -53,9 +51,11 @@
     <string name="toastSaved">Saved</string>
     <string name="labelN">Your Label: </string>
 
+
     <string name="notNeed">This article is not been saved, do not need to delete</string>
     <string name="alreadySaved">Already Saved</string>string>
     <string name="saveNewyork">New York Times News Saved List</string>
+
 
 
 

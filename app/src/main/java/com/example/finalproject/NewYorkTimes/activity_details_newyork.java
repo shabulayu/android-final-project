@@ -59,7 +59,9 @@ public class activity_details_newyork extends Fragment {
         View result =  inflater.inflate(R.layout.activity_detail_newyork, container, false);
 
         save = result.findViewById(R.id.saveButton);
+
         delete = result.findViewById(R.id.deleteB);
+
         tBar = result.findViewById(R.id.toolbar);
         editLabel = result.findViewById(R.id.label);
         //get the displayed article id
