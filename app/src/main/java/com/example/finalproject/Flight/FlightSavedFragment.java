@@ -13,12 +13,14 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.finalproject.Flight.model.Flight;
 import com.example.finalproject.R;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static com.example.finalproject.Flight.FlightDatabaseHelper.TABLE_NAME;
 
@@ -76,6 +78,15 @@ public class FlightSavedFragment extends Fragment {
 
         deleteButton.setOnClickListener(v -> {
             getActivity().finish();
+        });
+
+        listView.setOnItemLongClickListener((parent, view1, position, id) -> {
+            db.delete(FlightDatabaseHelper.TABLE_NAME,
+                    FlightDatabaseHelper.COL_IataNumber + " = ?", new String[]{Objects.requireNonNull(flightAdapter.getItem(position)).getIataNumber()});
+            flights.remove(position);
+            Toast.makeText(this.getActivity(), "Flight deleted", Toast.LENGTH_SHORT).show();
+            flightAdapter.notifyDataSetChanged();
+            return true;
         });
 
         return view;
