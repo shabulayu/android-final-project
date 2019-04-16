@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     Button newsBt;
     Button flightBt;
     Button searchBt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         searchBt = findViewById(R.id.searchBt);
 
 
+
         dicBt.setOnClickListener(a -> {
             Intent dic=new Intent(this, Dictionary.class);
             startActivity(dic);
@@ -46,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             Intent news = new Intent(this, NewsFeed.class);
             startActivity(news);
         });
+
 
 
         flightBt.setOnClickListener(b->{
@@ -61,5 +64,6 @@ public class MainActivity extends AppCompatActivity {
 
 
         });
+
     }
 }

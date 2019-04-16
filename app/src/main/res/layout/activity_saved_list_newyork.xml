@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/savedNews"
-        android:text="New York Times News Saved List"
+        android:text="@string/saveNewyork"
         android:textSize="25dp"
         android:layout_below="@+id/toolbar"
         android:layout_centerInParent="true"

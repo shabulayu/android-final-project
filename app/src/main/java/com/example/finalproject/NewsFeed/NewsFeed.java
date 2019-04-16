@@ -1,7 +1,12 @@
 package com.example.finalproject.NewsFeed;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AlertDialog;
@@ -62,6 +67,11 @@ public class NewsFeed extends AppCompatActivity {
     Article showArticle = new Article();
     ArrayList<Article> showArticles = new ArrayList<>();
 
+    NewsFeedDatabase database;
+    SQLiteDatabase db;
+
+    SharedPreferences sp;
+    String searchText="";
     /**
      * onCreate method to initialize the view of this page
      * @param savedInstanceState
@@ -80,8 +90,36 @@ public class NewsFeed extends AppCompatActivity {
         pBar.setVisibility(View.INVISIBLE);
         numArt = findViewById(R.id.numArticle);
 
-        setSupportActionBar(tBar);
+        sp = getSharedPreferences("searchtext", Context.MODE_PRIVATE);
+        String saved = sp.getString("searchtext","");
+        sView.setQuery(saved,false);
 
+
+        setSupportActionBar(tBar);
+        database = new NewsFeedDatabase(this);
+        db = database.getWritableDatabase();
+
+        String[] columns = {NewsFeedDatabase.COL_ID,NewsFeedDatabase.COL_TITLE,
+                NewsFeedDatabase.COL_AUTHOR, NewsFeedDatabase.COL_TEXT, NewsFeedDatabase.COL_URL};
+        Cursor c = db.query(false,NewsFeedDatabase.TABLE_NAME_LIST, columns,
+                null,null,null,null,null,null);
+
+        //find the column indices
+        int idColIndex = c.getColumnIndex(NewsFeedDatabase.COL_ID);
+        int titleColIndex = c.getColumnIndex(NewsFeedDatabase.COL_TITLE);
+        int authorColIndex = c.getColumnIndex(NewsFeedDatabase.COL_AUTHOR);
+        int textColIndex = c.getColumnIndex(NewsFeedDatabase.COL_TEXT);
+        int urlColIndex = c.getColumnIndex(NewsFeedDatabase.COL_URL);
+
+        while(c.moveToNext()){
+            long id = c.getLong(idColIndex);
+            String title = c.getString(titleColIndex);
+            String author = c.getString(authorColIndex);
+            String text = c.getString(textColIndex);
+            String url = c.getString(urlColIndex);
+
+            showArticles.add(new Article(title,text,author,url,id));
+        }
         //search view submit function
         sView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
@@ -161,11 +199,11 @@ public class NewsFeed extends AppCompatActivity {
                 startActivity(new Intent(this,NewsSavedArticle.class));
                 break;
             case R.id.item3:
-                Intent air = new Intent(this, FlightMainActivity.class);
+                Intent air = new Intent(this, Dictionary.class);
                 startActivity(air);
                 break;
             case R.id.item4:
-                Intent dic = new Intent(this, Dictionary.class);
+                Intent dic = new Intent(this, FlightMainActivity.class);
                 startActivity(dic);
                 break;
             case R.id.item5:
@@ -247,7 +285,7 @@ public class NewsFeed extends AppCompatActivity {
         String text ="";
         String author="";
         String link="";
-        String searchText="";
+
 
 
         @Override
@@ -330,10 +368,17 @@ public class NewsFeed extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-
+            db.delete(NewsFeedDatabase.TABLE_NAME_LIST,null,null);
             //when the article's title contains search text, add this article into showArticles array
             for(Article a: articles){
                 if(a.getTitle().contains(searchText)){
+                    ContentValues newRow = new ContentValues();
+                    newRow.put(NewsFeedDatabase.COL_TITLE,a.getTitle());
+                    newRow.put(NewsFeedDatabase.COL_AUTHOR,a.getAuthor());
+                    newRow.put(NewsFeedDatabase.COL_URL,a.getUrl());
+                    newRow.put(NewsFeedDatabase.COL_TEXT,a.getText());
+                    long newId = db.insert(NewsFeedDatabase.TABLE_NAME_LIST,null,newRow);
+                    a.setId(newId);
                     showArticles.add(a);
                 }
             }
@@ -353,6 +398,17 @@ public class NewsFeed extends AppCompatActivity {
 
             pBar.setVisibility(View.INVISIBLE);
 
+
         }
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        SharedPreferences.Editor editor = sp.edit();
+
+
+        editor.putString("searchtext",searchText);
+
+        editor.commit();
     }
 }

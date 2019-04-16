@@ -8,6 +8,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.widget.Button;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
+import android.widget.Toast;
 
 import com.example.finalproject.R;
 
@@ -27,9 +28,13 @@ public class NewsArticle extends AppCompatActivity {
     NewsFeedDatabase database;
     SQLiteDatabase db;
     Article article;
-    ArrayList<Article> savedArticles = new ArrayList<>();
+    //ArrayList<Article> savedArticles = new ArrayList<>();
 
 
+    /**
+     * shows the details of an article, user can save the article if user like.
+     * @param savedInstanceState
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,9 +47,7 @@ public class NewsArticle extends AppCompatActivity {
         tBar = findViewById(R.id.toolbar2);
         saveBt = findViewById(R.id.savedBt);
 
-        //get database
-        //database = new NewsFeedDatabase(this);
-        //db = database.getWritableDatabase();
+
 
         setSupportActionBar(tBar);
         //get data from last page
@@ -59,21 +62,26 @@ public class NewsArticle extends AppCompatActivity {
         //set the scroll bar if the article is too long
         text.setMovementMethod(ScrollingMovementMethod.getInstance());
 
-//        saveBt.setOnClickListener(a->{
-//
-//            ContentValues newRow = new ContentValues();
-//
-//            long newId = db.insert(NewsFeedDatabase.TABLE_NAME_SAVED,null,newRow);
-//            newRow.put(NewsFeedDatabase.COL_TITLE,dataReceive.getString("title"));
-//            newRow.put(NewsFeedDatabase.COL_AUTHOR,dataReceive.getString("author"));
-//            newRow.put(NewsFeedDatabase.COL_URL,dataReceive.getString("url"));
-//            newRow.put(NewsFeedDatabase.COL_TEXT,dataReceive.getString("text"));
-//
-//            article = new Article(dataReceive.getString("title"),
-//                    dataReceive.getString("text"),dataReceive.getString("author"),
-//                    dataReceive.getString("url"));
-//            savedArticles.add(article);
-//        });
+        //get database
+        database = new NewsFeedDatabase(this);
+        db = database.getWritableDatabase();
+        saveBt.setOnClickListener(a->{
+
+            ContentValues newRow = new ContentValues();
+
+
+            newRow.put(NewsFeedDatabase.COL_TITLE,dataReceive.getString("title"));
+            newRow.put(NewsFeedDatabase.COL_AUTHOR,dataReceive.getString("author"));
+            newRow.put(NewsFeedDatabase.COL_URL,dataReceive.getString("url"));
+            newRow.put(NewsFeedDatabase.COL_TEXT,dataReceive.getString("text"));
+            long newId = db.insert(NewsFeedDatabase.TABLE_NAME_SAVED,null,newRow);
+
+            article = new Article(dataReceive.getString("title"),
+                    dataReceive.getString("text"),dataReceive.getString("author"),
+                    dataReceive.getString("url"), newId);
+            //savedArticles.add(article);
+            Toast.makeText(this,"Article saved successful",Toast.LENGTH_LONG ).show();
+        });
 
     }
 }
