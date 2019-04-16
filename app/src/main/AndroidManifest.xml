@@ -12,17 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
 
-        
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
         <activity android:name=".Dictionary.Dictionary"></activity>
         <activity android:name=".Dictionary.Dictionary_definition"></activity>
         <activity android:name=".Dictionary.EmptyActivity"/>
-
-
-
-        
-
-        android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true">
         <activity android:name=".NewsFeed.NewsEmpty"></activity>
         <activity android:name=".NewsFeed.NewsSavedFragment" />
        
