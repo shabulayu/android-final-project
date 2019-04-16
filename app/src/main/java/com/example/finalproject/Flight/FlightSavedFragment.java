@@ -1,6 +1,7 @@
 package com.example.finalproject.Flight;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
@@ -78,6 +79,17 @@ public class FlightSavedFragment extends Fragment {
 
         deleteButton.setOnClickListener(v -> {
             getActivity().finish();
+        });
+
+        listView.setOnItemClickListener((parent, view1, position, id) -> {
+            Intent intent = new Intent(this.getActivity(), FlightDetailActivity.class);
+            Flight flight = flightAdapter.getItem(position);
+            intent.putExtra("location", flight.getLocation());
+            intent.putExtra("speed", flight.getSpeed());
+            intent.putExtra("altitude", flight.getAltitude());
+            intent.putExtra("status", flight.getStatus());
+            intent.putExtra("iataNumber", flight.getIataNumber());
+            startActivity(intent);
         });
 
         listView.setOnItemLongClickListener((parent, view1, position, id) -> {

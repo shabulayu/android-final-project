@@ -82,8 +82,8 @@ public class FlightDetailActivity extends AppCompatActivity {
 
                 //put string message in the message column
                 newRowValues.put(FlightDatabaseHelper.COL_Location, getIntent().getStringExtra("location"));
-                newRowValues.put(FlightDatabaseHelper.COL_Altitude, getIntent().getDoubleExtra("altitude", 0));
-                newRowValues.put(FlightDatabaseHelper.COL_Speed, getIntent().getDoubleExtra("speed", 0));
+                newRowValues.put(FlightDatabaseHelper.COL_Altitude, getIntent().getStringExtra("altitude"));
+                newRowValues.put(FlightDatabaseHelper.COL_Speed, getIntent().getStringExtra("speed"));
                 newRowValues.put(FlightDatabaseHelper.COL_Status, getIntent().getStringExtra("status"));
                 newRowValues.put(FlightDatabaseHelper.COL_IataNumber, getIntent().getStringExtra("iataNumber"));
 
