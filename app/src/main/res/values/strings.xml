@@ -5,6 +5,7 @@
     <string name="dic_Message">Welcome to use Merriam Webster Dictionary</string>
     <string name="dic_definition">DEFINITION </string>
     <string name="dic_type">Enter a word to search. </string>
+    <string name="dic_saveWords">Saved Words: </string>
 
     <string name="action_settings">Help</string>
 

@@ -1,6 +1,9 @@
 package com.example.finalproject.Dictionary;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
@@ -10,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -30,7 +34,8 @@ import java.net.URLEncoder;
 import java.util.ArrayList;
 
 /**
- * This class present the search functionality for the dictionary
+ * This class present the search functionality for the dictionary. It retrieve the definition of the target term from the given API and stored it to an arraylist.
+ * The arraylist will pass to the main dictionary activity and store into database
  */
 public class Dictionary_definition extends AppCompatActivity {
     private ProgressBar progressBar;
@@ -39,13 +44,20 @@ public class Dictionary_definition extends AppCompatActivity {
     String previousTyped;
     String definition = null;
     ArrayList<String> arrayList=new ArrayList<String>();
+    private ArrayList<DictionaryList> dicList=new ArrayList<>();
     MyArrayAdapter adt;
     private DictionaryList message;
     private TextView txtInput;
     ListView theList;
+//    MyDatabaseOpenHelper dbOpener = new MyDatabaseOpenHelper(this);
+//    Cursor results;
+    String def="";
+
 
     TextView txtV1;
     TextView txtV2;
+    public static final int WORD_SAVED = 5338;
+    protected SQLiteDatabase db = null;
 
     /**
      *Initiation for variables.
@@ -65,7 +77,9 @@ public class Dictionary_definition extends AppCompatActivity {
 
         if(arrayList==null){
             arrayList=new ArrayList<>();}
-
+        //get the database:
+        MyDatabaseOpenHelper opener = new MyDatabaseOpenHelper(this);
+        db =  opener.getWritableDatabase();
         adt= new MyArrayAdapter(arrayList);
         theList = (ListView)findViewById(R.id.the_list);
         theList.setAdapter(adt);
@@ -73,30 +87,30 @@ public class Dictionary_definition extends AppCompatActivity {
         SearchQuery networkThread = new SearchQuery();
         networkThread.execute(null, null, null);
 
+        Button saveButton = (Button)findViewById(R.id.saveButton);
+        saveButton.setOnClickListener( clk -> {
+            int i=1;
+            for(String s:arrayList){
+                def=def+i++ + ". "+s+"\n";
+            }
+
+            //Create a ContentValues object for the new values:
+            ContentValues newValues = new ContentValues();
+            newValues.put(MyDatabaseOpenHelper.COL_MSG, previousTyped);
+            newValues.put(MyDatabaseOpenHelper.COL_DEF, def);
+            Intent newInfo = new Intent();
+            newInfo.putExtra("word", previousTyped);
+            newInfo.putExtra("def",def);
+            setResult(WORD_SAVED,newInfo);
+            finish();
+
+    });
+
+
 
     }
 
-//    public void alertExample() {
-//        View middle = getLayoutInflater().inflate(R.layout.activity_dictionary_popup, null);
-////        EditText etAlert = (EditText)middle.findViewById(R.id.view_edit_text);
-//
-//
-//        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-//        builder.setMessage("The search box was not found! Please enter a new word. ")
-//                .setPositiveButton("Positive", new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        // What to do on Accept
-//                        previousTyped = etAlert.getText().toString();
-//                    }
-//                })
-//                .setNegativeButton("Negative", new DialogInterface.OnClickListener() {
-//                    public void onClick(DialogInterface dialog, int id) {
-//                        finish();// What to do on Cancel
-//                    }
-//                }).setView(middle);
-//
-//        builder.create().show();
-//    }
+
 
     /**
      * This function takes a word input and start searching its definitions on the provided website
@@ -118,11 +132,7 @@ public class Dictionary_definition extends AppCompatActivity {
                 URL url = new URL(s);
 
                 HttpURLConnection urlConnection = (HttpURLConnection) url.openConnection();
-//                while(urlConnection==null){
-//                    alertExample();
-//                    url = new URL("https://www.dictionaryapi.com/api/v1/references/sd3/xml/" + previousTyped + "?key=4556541c-b8ed-4674-9620-b6cba447184f");
-//                    urlConnection = (HttpURLConnection) url.openConnection();
-//                }
+
                 InputStream inStream = urlConnection.getInputStream();
 //                publishProgress(50);
 
@@ -146,9 +156,8 @@ public class Dictionary_definition extends AppCompatActivity {
 
                             Log.e("size",String.valueOf(arrayList.size()));
                             Log.e("AsyncTask", "Found definition: " + previousTyped);
-                            Thread.sleep(1000);
+                            Thread.sleep(500);
                             publishProgress(100);
-
 
 
 
@@ -158,6 +167,7 @@ public class Dictionary_definition extends AppCompatActivity {
                 }
 
                 urlConnection.disconnect();
+
 
 
             } catch (MalformedURLException e) {
@@ -189,10 +199,15 @@ public class Dictionary_definition extends AppCompatActivity {
 //            txtV2.setText(getString(R.string.definition)+definition);
 
             ((MyArrayAdapter)adt).notifyDataSetChanged();
-
-            Snackbar sb = Snackbar.make(theList, "Definition Found", Snackbar.LENGTH_LONG)
-                    .setAction("Go Back?", e -> finish());
-            sb.show();
+            if(arrayList.size()==0||arrayList==null){
+                Snackbar sb = Snackbar.make(theList, "Word not Found", Snackbar.LENGTH_LONG)
+                        .setAction("Go Back?", e -> finish());
+                sb.show();
+            }else {
+                Snackbar sb = Snackbar.make(theList, "Definition Found", Snackbar.LENGTH_LONG)
+                        .setAction("Go Back?", e -> finish());
+                sb.show();
+            }
         }
     }
 
