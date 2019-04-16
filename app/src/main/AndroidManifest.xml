@@ -17,6 +17,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Dictionary.Dictionary"></activity>
         <activity android:name=".Dictionary.Dictionary_definition"></activity>
+        <activity android:name=".Dictionary.EmptyActivity"/>
 
 
         <activity android:name=".NewYorkTimes.saved_list_newyork"></activity>
@@ -26,6 +27,7 @@
         <activity android:name=".NewsFeed.NewsFeed" />
 
         <activity android:name=".Flight.FlightDetailActivity" />
+
         <activity android:name=".Flight.FlightMainActivity" />
 
         <activity android:name=".NewYorkTimes.activity_newyork" />

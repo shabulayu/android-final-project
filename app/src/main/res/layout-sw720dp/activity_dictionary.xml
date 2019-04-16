@@ -38,27 +38,21 @@
         <!--android:id="@+id/refresher"-->
         <!--android:layout_width="match_parent"-->
         <!--android:layout_height="wrap_content">-->
-    <TextView
-        android:layout_below="@id/Editxt_search"
-        android:id="@+id/save"
-        android:background="@color/black"
-        android:textAllCaps="true"
-        android:textColor="@color/white"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:singleLine="true"
-        android:textStyle="bold"
-        android:text="@string/dic_saveWords"
-        android:typeface="monospace" />
-        <ListView
 
+        <ListView
             android:id="@+id/the_list"
-            android:layout_below="@+id/save"
-            android:layout_width="match_parent"
+            android:layout_below="@id/Editxt_search"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:typeface="monospace"
             android:textSize="30dp"
             android:stackFromBottom="true"/>
+    <FrameLayout
+        android:id="@+id/fragmentLocation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:layout_toEndOf="@id/the_list"/>
     <!--</android.support.v4.widget.SwipeRefreshLayout>-->
 
 
