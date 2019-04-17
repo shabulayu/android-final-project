@@ -12,7 +12,7 @@ import android.util.Log;
  */
 public class MyDatabaseOpenHelper extends SQLiteOpenHelper {
 
-    public static final String DATABASE_NAME = "MyDatabaseFile";
+    public static final String DATABASE_NAME = "MyDatabaseFiles";
     public static final int VERSION_NUM = 1;
     public static final String TABLE_NAME = "SearchHistory";
     public static final String COL_ID = "_id";
