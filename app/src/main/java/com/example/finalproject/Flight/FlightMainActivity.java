@@ -248,7 +248,7 @@ public class FlightMainActivity extends AppCompatActivity {
             URL url = null;
             StringBuilder json = new StringBuilder();
             try {
-                url = new URL("http://aviation-edge.com/v2/public/flights?key=1660a6-59a3ce&arrIata=" + editText.getText().toString().toLowerCase());
+                url = new URL("http://aviation-edge.com/v2/public/flights?key=81f879-367879&arrIata=" + editText.getText().toString().toLowerCase());
                 HttpURLConnection con = (HttpURLConnection) url.openConnection();
                 BufferedReader br = new BufferedReader(new InputStreamReader(con.getInputStream()));
                 String inputLine;
